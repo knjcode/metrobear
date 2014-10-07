@@ -1,9 +1,24 @@
+<% wc = {"Ginza"=>"e/ee", "Marunouchi"=>"a/a5", "Hibiya"=>"1/1a",
+  "Tozai"=>"e/e4", "Chiyoda"=>"f/f7", "Yurakucho"=>"0/04",
+        "Hanzomon"=>"7/71", "Namboku"=>"7/74", "Fukutoshin"=>"8/8b"} %>
+
 <div class="center hero-unit">
-  <h1>Welcome to the Tokyometro Stamp Rally</h1>
-
-  <h2>
-    Tokyometro Stamp Rally application.
-  </h2>
-
+  <h2>Welcome to the Tokyometro Stamp Rally</h2>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 </div>
+
+<section class="container">
+<% METRO_RAILWAY.each do |railway, railwayName| %>
+  <% rn = railway.slice(24..-1) %>
+  <div>
+  <a href="#"><h4><img alt="<%= p rn %>" src="//upload.wikimedia.org/wikipedia/commons/thumb/<%= p wc[rn] %>/Subway_Tokyo<%= p rn %>.png/32px-Subway_Tokyo<%= p rn %>.png" width="32" height="32" data-file-width="400" data-file-height="400" /> <%= p railwayName.slice(5..-1) %></h4></a>
+  <ul class="nav nav-pills">
+    <% METRO_RAILSTA[railway].each do |stations| %>
+      <% stations.each do |id, station| %>
+        <li><a href="#">(<%= p id %>) <%= p METRO_STATION[station] %></a></li>
+      <% end %>
+    <% end %>
+  </ul><br />
+  </div>
+<% end %>
+</section>
