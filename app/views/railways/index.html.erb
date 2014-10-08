@@ -1,0 +1,20 @@
+<div class="center hero-unit">
+  <h2>Welcome to the Tokyometro Stamp Rally</h2>
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<section class="container">
+<% METRO_RAILWAY.each do |railway, railwayName| %>
+  <% rn = railway.slice(24..-1) %>
+  <div>
+  <a href="<%= url_for :controller => 'railways', :action => 'show', :id => rn %>"><h3><img alt="<%= rn %>" src="//upload.wikimedia.org/wikipedia/commons/thumb/<%= WH[rn] %>/Subway_Tokyo<%= rn %>.png/32px-Subway_Tokyo<%= rn %>.png" width="32" height="32" data-file-width="400" data-file-height="400" /> <%= railwayName.slice(5..-1) %></h3></a>
+  <ul class="nav nav-pills">
+    <% METRO_RAILSTA[railway].each do |stations| %>
+      <% stations.each do |id, station| %>
+        <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= METRO_STATION[station] %></a></li>
+      <% end %>
+    <% end %>
+  </ul><br />
+  </div>
+<% end %>
+</section>
