@@ -4,3 +4,17 @@
 <section class="container">
   <h3><font style="color: <%= CS[rn] %>;"></span> <%= METRO_STATION[sn] %>駅</h3>
 </section>
+
+<% @user ||= current_user %>
+<% if signed_in? %>
+  <% station_id = Station.find_by(name: sn).id %>
+    <% if @user.visiting?(station_id) %>
+      <h4><%= "あなたはこの駅に訪問済みです！" %></h4><br />
+    <% else %>
+      <% @user.visitings.create(station_id: station_id) %>
+      <h4><%= "ようこそ#{METRO_STATION[sn]}駅へ！" %></h4><br />
+    <% end %>
+<% else %>
+  <h4>サインインしていません。</h4>
+<% end %>
+

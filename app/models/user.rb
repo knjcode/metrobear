@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :visitings
+  has_many :stations, through: :visitings
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name,  presence: true, length: { maximum: 50 }
@@ -14,6 +16,18 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def visiting?(station_id)
+    visitings.where(station_id: station_id).exists?
+  end
+
+  def visit!(station_id)
+    visitings.create!(station_id: station_id)
+  end
+
+  def unvisit!(station_id)
+    visitings.where(station_id:station_id).destroy
   end
 
   private

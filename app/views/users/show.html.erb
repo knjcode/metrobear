@@ -7,5 +7,15 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section class="visitings">
+      訪問済み駅数： <%= @user.visitings.count %><br />
+      訪問した駅一覧：
+      <ul>
+      <% @user.visitings.each do |visit| %>
+        <% station = Station.find(visit.station_id).name %>
+        <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= METRO_STATION[station] %></a></li>
+      <% end %>
+      </ul>
+    </section>
   </aside>
 </div>

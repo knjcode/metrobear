@@ -4,5 +4,6 @@
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
-  <% end %>
+  <% end %><br />
+  訪問済み駅数： <%= user.visitings.count %>
 </li>
