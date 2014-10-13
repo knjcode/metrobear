@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def visiting?(station_id)
-    visitings.where(station_id: station_id).exists?
+    visitings.find_by_station_id(station_id)
   end
 
   def visit!(station_id)
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def unvisit!(station_id)
-    visitings.where(station_id:station_id).destroy
+    visitings.find_by_station_id(station_id).destroy
   end
 
   private
