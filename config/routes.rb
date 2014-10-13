@@ -1,8 +1,8 @@
 TokyometroStampRally::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :railways
-  resources :stations
+  resources :railways, only: [:show]
+  resources :stations, only: [:show]
 
   root  'railways#index'
   match '/signup',  to: 'users#new',            via: 'get'
