@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     visitings.find_by_station_id(station_id).destroy
   end
 
+  def station_count
+    visitings.count
+  end
+
   private
 
     def create_remember_token
