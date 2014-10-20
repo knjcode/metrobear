@@ -4,7 +4,7 @@ require 'httpclient'
 API_ENDPOINT   = "https://api.tokyometroapp.jp/api/v2/"
 DATAPOINTS_URL = API_ENDPOINT + "datapoints"
 PLACES_URL     = API_ENDPOINT + "places"
-ACCESS_TOKEN   = ENV["TMSR_ACCESS_TOKEN"]
+ACCESS_TOKEN   = Rails.application.secrets.access_token
 
 module ApplicationHelper
 
