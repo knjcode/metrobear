@@ -8,6 +8,7 @@ function success(position) {
   document.getElementById("position_msg").innerHTML
     = "<i class='fa fa-location-arrow'></i>　位置情報を取得しました";
   document.getElementById("submit").style.visibility = "visible";
+  document.getElementById("retry").style.display = "";
 }
 
 // 位置情報を再取得する際に緯度経度誤差とテキストをクリアします。
@@ -17,6 +18,7 @@ function reset_element() {
   document.getElementById("accuracy").value = "";
   document.getElementById("position_msg").innerHTML
     = "<i class='fa fa-refresh fa-spin'></i>　位置情報を取得中";
+  document.getElementById("retry").style.display = "none";
 }
 
 function error(error) {
@@ -27,13 +29,14 @@ function error(error) {
       error_msg = "位置情報の利用を有効にしてください";
       break;
     case error.POSITION_UNAVAILABLE:
-      error_msg = "デバイスの位置が判定できませんでした";
+      error_msg = "位置情報を取得できませんでした";
       break;
     case error.TIMEOUT:
       error_msg = "位置情報の取得にタイムアウトしました";
       break;
   }
   document.getElementById("position_msg").innerHTML = error_msg;
+  document.getElementById("retry").style.display = "";
 }
 // 現在地を取得する処理です。
 // 成功時にはコールバックsuccess、エラー時にはコールバックerrorが実行されます。
@@ -50,7 +53,7 @@ navigator.geolocation.getCurrentPosition(success, error);
       <%= hidden_field_tag :lat %>
       <%= hidden_field_tag :lon %>
       <%= hidden_field_tag :accuracy %>
-      <div id="submit" style="visibility: hidden;"><input type="submit" value="現在地を判定" class="btn btn-primary"/></div>
+      <div id="submit" style="visibility: hidden;"><input type="submit" value="現在地を判定する" class="btn btn-primary"/></div>
     </form>
   <% end %>
   <% if params[:lat] then %>
@@ -70,9 +73,10 @@ navigator.geolocation.getCurrentPosition(success, error);
     <% end %>
     <h4>デバッグ：近接駅　<%= p near_stations %></h4>
     <h4>デバッグ：訪問駅　<%= p visited_stations %></h4>
+    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
   <% end %>
 
-  <% if params[:lat] then %>
-    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn btn-primary">現在地を再取得</a></h2>
-  <% end %>
+  <div id="retry" style="display: none;">
+    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
+  </div>
 </section>
