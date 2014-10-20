@@ -4,17 +4,18 @@
 </div>
 
 <section class="container">
+<h2><%= link_to "現在地を判定する！", location_path, class: "btn btn-large btn-primary" %></h2>
 <% METRO_RAILWAY.each do |railway, railwayName| %>
   <% rn = railway.slice(24..-1) %>
-  <div>
+  <div class="railways">
   <a href="<%= url_for :controller => 'railways', :action => 'show', :id => rn %>"><h3><img alt="<%= rn %>" src="//upload.wikimedia.org/wikipedia/commons/thumb/<%= WH[rn] %>/Subway_Tokyo<%= rn %>.png/32px-Subway_Tokyo<%= rn %>.png" width="32" height="32" data-file-width="400" data-file-height="400" /> <%= railwayName.slice(5..-1) %></h3></a>
   <ul class="nav nav-pills">
     <% METRO_RAILSTA[railway].each do |stations| %>
-      <% stations.each do |id, station| %>
+      <% stations.each do |_, station| %>
         <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= METRO_STATION[station] %></a></li>
       <% end %>
     <% end %>
-  </ul><br />
+  </ul>
   </div>
 <% end %>
 </section>

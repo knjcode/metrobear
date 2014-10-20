@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
-  def home
+  def location
+    @lat = params[:lat]
+    @lon = params[:lon]
+    @accu = params[:accuracy]
   end
 
   def help

@@ -1,0 +1,78 @@
+<% provide(:title, 'Home') %>
+<script type="text/javascript">
+// 位置情報を取得できた場合のコールバックです。隠しエレメントに緯度経度誤差を格納します。
+function success(position) {
+  document.getElementById("lat").value = position.coords.latitude;
+  document.getElementById("lon").value = position.coords.longitude;
+  document.getElementById("accuracy").value = position.coords.accuracy;
+  document.getElementById("position_msg").innerHTML
+    = "<i class='fa fa-location-arrow'></i>　位置情報を取得しました";
+  document.getElementById("submit").style.visibility = "visible";
+}
+
+// 位置情報を再取得する際に緯度経度誤差とテキストをクリアします。
+function reset_element() {
+  document.getElementById("lat").value = "";
+  document.getElementById("lon").value = "";
+  document.getElementById("accuracy").value = "";
+  document.getElementById("position_msg").innerHTML
+    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を取得中";
+}
+
+function error(error) {
+  var error_msg = "";
+  switch(error.code)
+  {
+    case error.PERMISSION_DENIED:
+      error_msg = "位置情報の利用を有効にしてください";
+      break;
+    case error.POSITION_UNAVAILABLE:
+      error_msg = "デバイスの位置が判定できませんでした";
+      break;
+    case error.TIMEOUT:
+      error_msg = "位置情報の取得にタイムアウトしました";
+      break;
+  }
+  document.getElementById("position_msg").innerHTML = error_msg;
+}
+// 現在地を取得する処理です。
+// 成功時にはコールバックsuccess、エラー時にはコールバックerrorが実行されます。
+navigator.geolocation.getCurrentPosition(success, error);
+</script>
+
+<section class="container">
+  <% @user ||= current_user %>
+  <% unless params[:lat] then %>
+    <!-- latの値が無い場合に現在地判定を表示 -->
+    <h1 id="position_msg"><i class="fa fa-refresh fa-spin"></i>　位置情報を取得中</h1>
+    <form action="<%= location_path %>" method="post" class="center">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :lat %>
+      <%= hidden_field_tag :lon %>
+      <%= hidden_field_tag :accuracy %>
+      <div id="submit" style="visibility: hidden;"><input type="submit" value="現在地を判定" class="btn btn-primary"/></div>
+    </form>
+  <% end %>
+  <% if params[:lat] then %>
+    <% near_stations, visited_stations = get_current_station(@lat,@lon,@accu,@user) %>
+    <% station = near_stations[0] %>
+    <h1>
+    <% if station then %>
+      <h1><%= METRO_STATION[station] %>駅にいます</h1>
+      <% unless current_user %>
+        <h2>スタンプするにはサインインしてください</h2>
+      <% end %>
+    <% else %>
+      <h1>近くに東京メトロの駅が無いようです</h1>
+    <% end %>
+    <% visited_stations.each do |station| %>
+    <h1><%= station %>駅のスタンプをゲットしました！</h1>
+    <% end %>
+    <h4>デバッグ：近接駅　<%= p near_stations %></h4>
+    <h4>デバッグ：訪問駅　<%= p visited_stations %></h4>
+  <% end %>
+
+  <% if params[:lat] then %>
+    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn btn-primary">現在地を再取得</a></h2>
+  <% end %>
+</section>
