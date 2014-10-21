@@ -9,10 +9,12 @@
 <% if signed_in? %>
   <% station_id = Station.find_by(name: sn).id %>
     <% if @user.visiting?(station_id) %>
-      <h4><%= "あなたはこの駅に訪問済みです！" %></h4><br />
-    <% else %>
-      <% @user.visitings.create(station_id: station_id) %>
       <h4><%= "ようこそ#{METRO_STATION[sn]}駅へ！" %></h4><br />
+      <h4><%= "あなたはこの駅に訪問済みです！" %></h4><br />
+      <img src="#" width=180 height=160 alt="スタンプ画像">
+    <% else %>
+      <% #@user.visitings.create(station_id: station_id) %>
+      <h4><%= "あなたはこの駅にまだ訪問していません" %></h4><br />
     <% end %>
 <% else %>
   <h4>サインインしていません。</h4>
