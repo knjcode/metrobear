@@ -28,8 +28,9 @@
     <% visited_stations.each do |station| %>
     <h2><%= station %>駅のスタンプをゲットしました！</h2>
     <% end %>
-    <h4>デバッグ：近接駅　<%= p near_stations %></h4>
-    <h4>デバッグ：訪問駅　<%= p visited_stations %></h4>
+    <pre class="debug_damp">degug:
+near　<%= p near_stations %>
+visited　<%= p visited_stations %></pre>
     <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
   <% end %>
 
