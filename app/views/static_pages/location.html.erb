@@ -47,7 +47,7 @@ navigator.geolocation.getCurrentPosition(success, error);
   <% @user ||= current_user %>
   <% unless params[:lat] then %>
     <!-- latの値が無い場合に現在地判定を表示 -->
-    <h1 id="position_msg"><i class="fa fa-refresh fa-spin"></i>　位置情報を取得中</h1>
+    <h2 id="position_msg"><i class="fa fa-refresh fa-spin"></i>　位置情報を取得中</h2>
     <form action="<%= location_path %>" method="post" class="center">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <%= hidden_field_tag :lat %>
@@ -61,15 +61,15 @@ navigator.geolocation.getCurrentPosition(success, error);
     <% station = near_stations[0] %>
     <h1>
     <% if station then %>
-      <h1><%= METRO_STATION[station] %>駅にいます</h1>
+      <h2><%= METRO_STATION[station] %>駅にいます</h2>
       <% unless current_user %>
-        <h2>スタンプするにはサインインしてください</h2>
+        <h3>スタンプするにはサインインしてください</h3>
       <% end %>
     <% else %>
-      <h1>近くに東京メトロの駅が無いようです</h1>
+      <h2>近くに東京メトロの駅が無いようです</h2>
     <% end %>
     <% visited_stations.each do |station| %>
-    <h1><%= station %>駅のスタンプをゲットしました！</h1>
+    <h2><%= station %>駅のスタンプをゲットしました！</h2>
     <% end %>
     <h4>デバッグ：近接駅　<%= p near_stations %></h4>
     <h4>デバッグ：訪問駅　<%= p visited_stations %></h4>
