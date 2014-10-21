@@ -1,4 +1,43 @@
 <% provide(:title, 'Home') %>
+
+<section class="container">
+  <% @user ||= current_user %>
+  <% unless params[:lat] then %>
+    <!-- latの値が無い場合に現在地判定を表示 -->
+    <h2 id="position_msg"><i class="fa fa-refresh fa-spin"></i>　位置情報を取得中</h2>
+    <form action="<%= location_path %>" method="post" class="center">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :lat %>
+      <%= hidden_field_tag :lon %>
+      <%= hidden_field_tag :accuracy %>
+      <div id="submit" style="visibility: hidden;"><input type="submit" value="現在地を判定する" class="btn btn-primary"/></div>
+    </form>
+  <% end %>
+  <% if params[:lat] then %>
+    <% near_stations, visited_stations = get_current_station(@lat,@lon,@accu,@user) %>
+    <% station = near_stations[0] %>
+    <h1>
+    <% if station then %>
+      <h2><%= METRO_STATION[station] %>駅にいます</h2>
+      <% unless current_user %>
+        <h3>スタンプするにはサインインしてください</h3>
+      <% end %>
+    <% else %>
+      <h2>近くに東京メトロの駅が無いようです</h2>
+    <% end %>
+    <% visited_stations.each do |station| %>
+    <h2><%= station %>駅のスタンプをゲットしました！</h2>
+    <% end %>
+    <h4>デバッグ：近接駅　<%= p near_stations %></h4>
+    <h4>デバッグ：訪問駅　<%= p visited_stations %></h4>
+    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
+  <% end %>
+
+  <div id="retry" style="display: none;">
+    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
+  </div>
+</section>
+
 <script type="text/javascript">
 // 位置情報を取得できた場合のコールバックです。隠しエレメントに緯度経度誤差を格納します。
 function success(position) {
@@ -42,41 +81,3 @@ function error(error) {
 // 成功時にはコールバックsuccess、エラー時にはコールバックerrorが実行されます。
 navigator.geolocation.getCurrentPosition(success, error);
 </script>
-
-<section class="container">
-  <% @user ||= current_user %>
-  <% unless params[:lat] then %>
-    <!-- latの値が無い場合に現在地判定を表示 -->
-    <h2 id="position_msg"><i class="fa fa-refresh fa-spin"></i>　位置情報を取得中</h2>
-    <form action="<%= location_path %>" method="post" class="center">
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <%= hidden_field_tag :lat %>
-      <%= hidden_field_tag :lon %>
-      <%= hidden_field_tag :accuracy %>
-      <div id="submit" style="visibility: hidden;"><input type="submit" value="現在地を判定する" class="btn btn-primary"/></div>
-    </form>
-  <% end %>
-  <% if params[:lat] then %>
-    <% near_stations, visited_stations = get_current_station(@lat,@lon,@accu,@user) %>
-    <% station = near_stations[0] %>
-    <h1>
-    <% if station then %>
-      <h2><%= METRO_STATION[station] %>駅にいます</h2>
-      <% unless current_user %>
-        <h3>スタンプするにはサインインしてください</h3>
-      <% end %>
-    <% else %>
-      <h2>近くに東京メトロの駅が無いようです</h2>
-    <% end %>
-    <% visited_stations.each do |station| %>
-    <h2><%= station %>駅のスタンプをゲットしました！</h2>
-    <% end %>
-    <h4>デバッグ：近接駅　<%= p near_stations %></h4>
-    <h4>デバッグ：訪問駅　<%= p visited_stations %></h4>
-    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
-  <% end %>
-
-  <div id="retry" style="display: none;">
-    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
-  </div>
-</section>
