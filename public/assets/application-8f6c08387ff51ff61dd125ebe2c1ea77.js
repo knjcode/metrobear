@@ -12730,4 +12730,44 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 
 
 
+
+// 位置情報を取得できた場合のコールバック。隠しエレメントに緯度経度誤差を格納する。
+function success(position) {
+  document.getElementById("lat").value = position.coords.latitude;
+  document.getElementById("lon").value = position.coords.longitude;
+  document.getElementById("accuracy").value = position.coords.accuracy;
+  document.getElementById("position_msg").innerHTML
+    = "<i class='fa fa-location-arrow'></i>　位置情報を取得しました";
+  document.getElementById("submit").style.visibility = "visible";
+  document.getElementById("retry").style.display = "";
+}
+
+// 位置情報を再取得する際に緯度経度誤差とテキストをクリア
+function reset_element() {
+  document.getElementById("lat").value = "";
+  document.getElementById("lon").value = "";
+  document.getElementById("accuracy").value = "";
+  document.getElementById("position_msg").innerHTML
+    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を取得中";
+  document.getElementById("retry").style.display = "none";
+}
+
+// 位置情報を取得できなかった場合のコールバック
+function error(error) {
+  var error_msg = "";
+  switch(error.code)
+  {
+    case error.PERMISSION_DENIED:
+      error_msg = "位置情報の利用を有効にしてください";
+      break;
+    case error.POSITION_UNAVAILABLE:
+      error_msg = "位置情報を取得できませんでした";
+      break;
+    case error.TIMEOUT:
+      error_msg = "位置情報の取得にタイムアウトしました";
+      break;
+  }
+  document.getElementById("position_msg").innerHTML = error_msg;
+  document.getElementById("retry").style.display = "";
+}
 ;

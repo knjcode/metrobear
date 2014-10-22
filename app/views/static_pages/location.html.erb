@@ -28,9 +28,6 @@
     <% visited_stations.each do |station| %>
     <h2><%= station %>駅のスタンプをゲットしました！</h2>
     <% end %>
-    <pre class="debug_damp">degug:
-near　<%= p near_stations %>
-visited　<%= p visited_stations %></pre>
     <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
   <% end %>
 
@@ -39,46 +36,20 @@ visited　<%= p visited_stations %></pre>
   </div>
 </section>
 
+<% if Rails.env.development? and params[:lat] %>
+<pre class="debug_damp">debug:
+near　<%= near_stations %>
+visited　<%= visited_stations %></pre>
+<% end %>
+
+<% if not params[:lat]%>
 <script type="text/javascript">
-// 位置情報を取得できた場合のコールバックです。隠しエレメントに緯度経度誤差を格納します。
-function success(position) {
-  document.getElementById("lat").value = position.coords.latitude;
-  document.getElementById("lon").value = position.coords.longitude;
-  document.getElementById("accuracy").value = position.coords.accuracy;
-  document.getElementById("position_msg").innerHTML
-    = "<i class='fa fa-location-arrow'></i>　位置情報を取得しました";
-  document.getElementById("submit").style.visibility = "visible";
-  document.getElementById("retry").style.display = "";
+// 現在地を取得する処理
+// 成功時にはコールバックsuccess、エラー時にはコールバックerrorを実行
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} else {
+  document.getElementById("position_msg").innerHTML = "位置情報を取得できませんでした"
 }
-
-// 位置情報を再取得する際に緯度経度誤差とテキストをクリアします。
-function reset_element() {
-  document.getElementById("lat").value = "";
-  document.getElementById("lon").value = "";
-  document.getElementById("accuracy").value = "";
-  document.getElementById("position_msg").innerHTML
-    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を取得中";
-  document.getElementById("retry").style.display = "none";
-}
-
-function error(error) {
-  var error_msg = "";
-  switch(error.code)
-  {
-    case error.PERMISSION_DENIED:
-      error_msg = "位置情報の利用を有効にしてください";
-      break;
-    case error.POSITION_UNAVAILABLE:
-      error_msg = "位置情報を取得できませんでした";
-      break;
-    case error.TIMEOUT:
-      error_msg = "位置情報の取得にタイムアウトしました";
-      break;
-  }
-  document.getElementById("position_msg").innerHTML = error_msg;
-  document.getElementById("retry").style.display = "";
-}
-// 現在地を取得する処理です。
-// 成功時にはコールバックsuccess、エラー時にはコールバックerrorが実行されます。
-navigator.geolocation.getCurrentPosition(success, error);
 </script>
+<% end %>
