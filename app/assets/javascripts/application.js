@@ -22,9 +22,8 @@ function success(position) {
   document.getElementById("lon").value = position.coords.longitude;
   document.getElementById("accuracy").value = position.coords.accuracy;
   document.getElementById("position_msg").innerHTML
-    = "<i class='fa fa-location-arrow'></i>　位置情報を取得しました";
-  document.getElementById("submit").style.visibility = "visible";
-  document.getElementById("retry").style.display = "";
+    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を判定しています";
+  document.location.submit();
 }
 
 // 位置情報を再取得する際に緯度経度誤差とテキストをクリア
@@ -33,8 +32,7 @@ function reset_element() {
   document.getElementById("lon").value = "";
   document.getElementById("accuracy").value = "";
   document.getElementById("position_msg").innerHTML
-    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を取得中";
-  document.getElementById("retry").style.display = "none";
+    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を取得しています";
 }
 
 // 位置情報を取得できなかった場合のコールバック
