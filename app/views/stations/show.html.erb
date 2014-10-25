@@ -2,8 +2,7 @@
 <% rn = params[:railway] %>
 
 <section class="container">
-  <h3><font style="color: <%= CS[rn] %>;"></span> <%= METRO_STATION[sn] %>駅</h3>
-</section>
+<h3><%= METRO_STATION[sn] %>駅</h3>
 
 <% id = Station.find_by(name: sn).id %>
 <% @user ||= current_user %>
@@ -28,3 +27,5 @@
   <li><%= link_to local_user.name, local_user %></li>
 <% end %>
 </ul>
+
+</section>

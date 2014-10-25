@@ -9,7 +9,7 @@ ACCESS_TOKEN   = Rails.application.secrets.access_token
 module ApplicationHelper
 
   def full_title(page_title)
-    base_title = "Tokyometro Stamp Rally"
+    base_title = APP_NAME
     if page_title.empty?
       base_title
     else

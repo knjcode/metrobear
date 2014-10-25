@@ -1,16 +1,17 @@
 <% unless signed_in? %>
-<div class="center hero-unit">
-  <h2>Welcome to the Tokyometro Stamp Rally</h2>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+<div class="jumbotron">
+  <h2>ようこそ！</h2>
+  <p><%= APP_NAME %>は東京メトロ各駅への訪問を記録できる<br />スタンプラリーアプリです。</p>
+  <p><%= link_to "新規登録する", signup_path, class: "btn btn-primary btn-lg" %></p>
 </div>
 <% end %>
 
 <section class="container">
-<h2><%= link_to "現在地を判定する！", location_path, class: "btn btn-large btn-primary" %></h2>
+<h2><%= link_to "現在地を判定する！", location_path, class: "btn btn-primary btn-lg" %></h2>
 <% METRO_RAILWAY.each do |railway, railwayName| %>
   <% rn = railway.slice(24..-1) %>
   <div class="railways">
-  <a href="<%= url_for :controller => 'railways', :action => 'show', :id => rn %>"><h3><img alt="<%= rn %>" src="//upload.wikimedia.org/wikipedia/commons/thumb/<%= WH[rn] %>/Subway_Tokyo<%= rn %>.png/32px-Subway_Tokyo<%= rn %>.png" width="32" height="32" data-file-width="400" data-file-height="400" /> <%= railwayName.slice(5..-1) %></h3></a>
+  <a href="<%= url_for :controller => 'railways', :action => 'show', :id => rn %>"><h3 class="railway-logo"><img alt="<%= rn %>" src="//upload.wikimedia.org/wikipedia/commons/thumb/<%= WH[rn] %>/Subway_Tokyo<%= rn %>.png/32px-Subway_Tokyo<%= rn %>.png" width="32" height="32" data-file-width="400" data-file-height="400" /> <%= railwayName.slice(5..-1) %></h3></a>
   <ul class="nav nav-pills">
     <% METRO_RAILSTA[railway].each do |stations| %>
       <% stations.each do |_, station| %>
