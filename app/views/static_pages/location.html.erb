@@ -15,7 +15,6 @@
   <% if params[:lat] then %>
     <% near_stations, visited_stations = get_current_station(@lat,@lon,@accu,@user) %>
     <% station = near_stations[0] %>
-    <h1>
     <% if station then %>
       <h2><%= METRO_STATION[station] %>駅にいます</h2>
       <% unless current_user %>
@@ -27,11 +26,12 @@
     <% visited_stations.each do |station| %>
     <h2><%= station %>駅のスタンプを取得しました！</h2>
     <% end %>
-    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
+    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn btn-primary">現在地を再取得</a></h2>
   <% end %>
 
+  <!-- 位置情報が利用できなかった場合に表示 -->
   <div id="retry" style="display: none;">
-    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn">現在地を再取得</a></h2>
+    <h2><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn btn-primary">現在地を再取得</a></h2>
   </div>
 </section>
 
@@ -48,7 +48,7 @@ visited　<%= visited_stations %></pre>
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(success, error);
 } else {
-  document.getElementById("position_msg").innerHTML = "位置情報を取得できませんでした"
+  document.getElementById("position_msg").innerHTML = "位置情報を取得できません"
 }
 </script>
 <% end %>

@@ -17,6 +17,14 @@ module ApplicationHelper
     end
   end
 
+  def stamp_tag(station)
+    if station == "Shibuya"
+      return "<img src='/images/bear001.jpg' width='300' height='300' alt='Shibuya' />"
+    else
+      return "<img src='#' width='300' height='300' alt='#{station}のスタンプ画像' />"
+    end
+  end
+
   def get_current_station(lat, lon, accuracy, user)
     http_client = HTTPClient.new
 

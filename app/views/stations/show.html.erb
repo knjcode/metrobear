@@ -11,7 +11,7 @@
   <% if @user.visiting?(id) %>
     <h4><%= "ようこそ#{METRO_STATION[sn]}駅へ！" %></h4><br />
     <h4><%= "あなたはこの駅に訪問済みです！" %></h4><br />
-    <img src="#" width=180 height=160 alt="スタンプ画像">
+    <%= raw stamp_tag(sn) %>
   <% else %>
     <% #@user.visitings.create(station_id: id) %>
     <h4><%= "あなたはこの駅にまだ訪問していません" %></h4><br />
