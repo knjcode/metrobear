@@ -17,14 +17,12 @@ module ApplicationHelper
     end
   end
 
+  # 駅毎のスタンプをイメージタグで返却
   def stamp_tag(station)
-    if station == "Shibuya"
-      return "<img src='/images/bear001.jpg' width='300' height='300' alt='Shibuya' />"
-    else
-      return "<img src='#' width='300' height='300' alt='#{station}のスタンプ画像' />"
-    end
+    "<img src='/images/#{METRO_STAMP[station]}' width='300' height='300' alt='#{station}' />"
   end
 
+  # 現在地情報から駅訪問を判定
   def get_current_station(lat, lon, accuracy, user)
     http_client = HTTPClient.new
 
