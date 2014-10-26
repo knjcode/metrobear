@@ -13,6 +13,8 @@ gem 'newrelic_rpm'
 gem 'rb-readline'
 gem 'httpclient'
 gem 'font-awesome-rails'
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-twitter', '~> 1.1.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

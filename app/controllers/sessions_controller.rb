@@ -1,22 +1,16 @@
 class SessionsController < ApplicationController
 
-  def new
-  end
-
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      sign_in user
-      redirect_back_or user
-    else
-      flash.now[:error] = 'Invalid email/password combination'
-      render 'new'
-    end
+    user = User.find_or_create_from_auth_hash(request.env['omniauth.auth'])
+    session[:user_id] = user.id
+    flash[:success] = 'ログインしました'
+    redirect_to root_path
   end
 
   def destroy
-    sign_out
-    redirect_to root_url
+    reset_session
+    flash[:success] = 'ログアウトしました'
+    redirect_to root_path
   end
 
 end

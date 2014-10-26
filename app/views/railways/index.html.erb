@@ -1,12 +1,12 @@
 <% unless signed_in? %>
 <div class="jumbotron">
-  <h2>ようこそ！</h2>
-  <p><%= APP_NAME %>は東京メトロ各駅への訪問を記録できる<br />スタンプラリーアプリです。</p>
-  <p><%= link_to "新規登録する", signup_path, class: "btn btn-primary btn-lg" %></p>
+  <h2><%= APP_NAME %>へようこそ！</h2>
+  <p class="center">東京メトロ各駅への訪問を記録できるスタンプラリーアプリです。</p>
+  <p class="center"><%= link_to "Twitterでログイン", '/auth/twitter', class: "btn btn-primary btn-lg" %></p>
 </div>
 <% end %>
 
-<section class="container">
+<section>
 <h2><%= link_to "現在地を判定する！", location_path, class: "btn btn-primary btn-lg" %></h2>
 <% METRO_RAILWAY.each do |railway, railwayName| %>
   <% rn = railway.slice(24..-1) %>

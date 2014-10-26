@@ -1,9 +1,9 @@
 <li>
-  <%= gravatar_for user, size: 52 %>
-  <%= link_to user.name, user %>
+  <%= twitter_avatar user %>
+  <a href="/users/<%= user.nickname %>"><%= user.nickname %></a>
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
-  <% end %><br />
-  訪問済み駅数： <%= user.station_count %>
+  <% end %>
+  <p>訪問済み駅数： <%= user.station_count %></p>
 </li>

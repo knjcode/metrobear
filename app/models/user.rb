@@ -1,14 +1,26 @@
 class User < ActiveRecord::Base
   has_many :visitings
   has_many :stations, through: :visitings
-  before_save { self.email = email.downcase }
-  before_create :create_remember_token
-  validates :name,  presence: true, length: { maximum: 50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, length: { minimum: 6 }
+  #before_save { self.email = email.downcase }
+  #before_create :create_remember_token
+  #validates :name,  presence: true, length: { maximum: 50 }
+  #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  #validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+  #                  uniqueness: { case_sensitive: false }
+  #has_secure_password
+  #validates :password, length: { minimum: 6 }
+
+  def self.find_or_create_from_auth_hash(auth_hash)
+    provider = auth_hash[:provider]
+    uid = auth_hash[:uid]
+    nickname = auth_hash[:info][:nickname]
+    image_url = auth_hash[:info][:image]
+
+    User.find_or_create_by(provider: provider, uid: uid) do |user|
+      user.nickname = nickname
+      user.image_url = image_url
+    end
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

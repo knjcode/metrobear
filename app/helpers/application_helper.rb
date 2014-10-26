@@ -29,7 +29,7 @@ module ApplicationHelper
     http_client = HTTPClient.new
 
     # テスト用に銀座駅の座標を指定
-    #lat = 35.670304; lon = 139.7671173; accuracy = 100
+    lat = 35.670304; lon = 139.7671173; accuracy = 100
 
     # 誤差が大きすぎる場合は補正する
     if accuracy.to_i > 100
