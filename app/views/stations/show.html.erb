@@ -24,7 +24,7 @@
 <ul class="nav nav-pills">
 <% Visiting.where(station_id: id).each do |visiting| %>
   <% local_user = User.find_by(id: visiting.user_id) %>
-  <li><%= link_to local_user.name, local_user %></li>
+  <li><a href="/users/<%= local_user.nickname %>"><%= local_user.nickname %></a></li>
 <% end %>
 </ul>
 
