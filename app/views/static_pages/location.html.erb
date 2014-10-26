@@ -1,6 +1,6 @@
-<% provide(:title, 'Home') %>
+<% provide(:title, '現在地判定') %>
 
-<section class="container">
+<section>
   <% @user ||= current_user %>
   <% unless params[:lat] then %>
     <!-- latの値が無い場合に現在地判定を表示 -->

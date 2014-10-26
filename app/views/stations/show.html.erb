@@ -1,7 +1,7 @@
 <% sn = params[:id] %>
 <% rn = params[:railway] %>
 
-<section class="container">
+<section>
 <h3><%= METRO_STATION[sn] %>駅</h3>
 
 <% id = Station.find_by(name: sn).id %>

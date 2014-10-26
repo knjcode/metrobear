@@ -1,21 +1,20 @@
 <% provide(:title, @user.nickname) %>
 <div>
-  <aside class="span4">
+  <aside>
     <section>
-      <h1>
-        <img src="<%= @user.image_url %>" width="48" height="48">
-        <%= @user.nickname %>
-      </h1>
+      <h1><%= twitter_avatar @user %>
+      <%= @user.nickname %></h1>
     </section>
     <section class="visitings">
-      訪問済み駅数： <%= @user.visitings.count %><br />
+      <p>訪問済み駅数： <%= @user.visitings.count %></p>
       訪問した駅一覧：
-      <ul>
+      <ul class="nav nav-pills">
       <% @user.visitings.each do |visit| %>
         <% station = Station.find(visit.station_id).name %>
         <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= METRO_STATION[station] %></a></li>
       <% end %>
       </ul>
+      <p>登録日： <%= @user.created_at.strftime("%Y/%m/%d") %></p>
     </section>
   </aside>
 </div>
