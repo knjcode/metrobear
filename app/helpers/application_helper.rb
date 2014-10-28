@@ -22,6 +22,12 @@ module ApplicationHelper
     "<img src='/images/#{METRO_STAMP[station]}' width='300' height='300' alt='#{station}' />"
   end
 
+  # 路線別の駅アイコンをイメージタグで返却
+  def station_icon(railway, id)
+    id = id.gsub(/m/,'mm')
+    "<img src='/images/#{railway}/#{id}.png' width='32' height='32' alt='#{id}' />"
+  end
+
   # 現在地情報から駅訪問を判定
   def get_current_station(lat, lon, accuracy, user)
     http_client = HTTPClient.new
