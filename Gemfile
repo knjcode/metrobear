@@ -14,6 +14,7 @@ gem 'rb-readline'
 gem 'httpclient'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-twitter', '~> 1.1.0'
+gem 'omniauth-facebook', '~> 2.0.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

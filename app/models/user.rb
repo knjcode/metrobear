@@ -13,8 +13,13 @@ class User < ActiveRecord::Base
   def self.find_or_create_from_auth_hash(auth_hash)
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
-    nickname = auth_hash[:info][:nickname]
     image_url = auth_hash[:info][:image]
+
+    if provider == "facebook"
+      nickname = auth_hash[:info][:name]
+    else
+      nickname = auth_hash[:info][:nickname]
+    end
 
     User.find_or_create_by(provider: provider, uid: uid) do |user|
       user.nickname = nickname

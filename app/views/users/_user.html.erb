@@ -1,5 +1,5 @@
 <li>
-  <a href="/users/<%= user.nickname %>"><%= twitter_avatar user %><%= user.nickname %></a>
+  <a href="/users/<%= user.nickname %>"><%= user_avatar user %><%= user.nickname %></a>
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
