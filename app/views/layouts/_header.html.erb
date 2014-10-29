@@ -4,7 +4,7 @@
       <%= link_to APP_NAME, root_path, id: "logo" %>
       <nav>
         <ul class="nav nav-pills navbar-right">
-          <li><%= link_to "現在地を判定", location_path %></li>
+          <li><a href="<%= location_path %>"><i class="fa fa-location-arrow"></i> 現在地判定</a></li>
           <% if logged_in? %>
             <li><%= link_to "メンバ一覧", users_path %></li>
             <li id="fat-menu" class="dropdown">
@@ -18,7 +18,7 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Twitterでサインイン", '/auth/twitter' %></li>
+            <li><a href="/auth/twitter"><i class="fa fa-twitter"></i> twitterログイン</a></li>
           <% end %>
         </ul>
       </nav>
