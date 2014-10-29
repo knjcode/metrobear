@@ -12,7 +12,6 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'newrelic_rpm'
 gem 'rb-readline'
 gem 'httpclient'
-gem 'font-awesome-rails'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-twitter', '~> 1.1.0'
 
