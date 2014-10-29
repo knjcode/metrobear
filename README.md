@@ -10,6 +10,8 @@
 ## TODO
 
 - プライバシーポリシーの作成
+- アカウント削除機能
+- twitterとfacebook認証によるユーザ名衝突の回避
 - 駅来訪者一覧表示
 - 駅来訪記録の削除機能
 
@@ -40,4 +42,4 @@ TMSR_ACCESS_TOKEN: w1xvatanovwev6af2qorchfw76a2jv3dx6crynvt02byht91ev5wxcawgzx2k
 
 ## Author
 
-[Kenji Doi](https://github.com/knjcode)
+[Kenji Doi](https://github.com/knjcode) and Stamp images by gorakkuma
