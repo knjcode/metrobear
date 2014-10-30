@@ -12,7 +12,7 @@
     <h4><%= "あなたはこの駅に訪問済みです！" %></h4><br />
     <%= raw stamp_tag(sn) %>
   <% else %>
-    <% @user.visitings.create(station_id: id) %>
+    <% #@user.visitings.create(station_id: id) %>
     <h4><%= "あなたはこの駅にまだ訪問していません" %></h4><br />
   <% end %>
 <% else %>
