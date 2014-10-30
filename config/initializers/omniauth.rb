@@ -7,4 +7,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     Rails.application.secrets.facebook_api_secret,
     :image_size => 'square',
     :secure_image_url => 'true'
+  provider :github,
+    Rails.application.secrets.github_api_key,
+    Rails.application.secrets.github_api_secret
 end
