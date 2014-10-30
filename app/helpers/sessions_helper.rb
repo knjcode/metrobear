@@ -11,6 +11,11 @@ module SessionsHelper
     !!session[:user_id]
   end
 
+  def authenticate
+    return if logged_in?
+    redirect_to root_path, alert: 'ログインしてください'
+  end
+
   def signed_in?
     !current_user.nil?
   end

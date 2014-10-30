@@ -1,9 +1,5 @@
 <li>
   <%= link_to user.nickname, user %>
   <%= user_avatar user %>
-  <% if current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  <% end %>
   <p>訪問済み駅数： <%= user.station_count %></p>
 </li>
