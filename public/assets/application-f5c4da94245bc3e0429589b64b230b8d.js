@@ -12737,7 +12737,7 @@ function success(position) {
   document.getElementById("lon").value = position.coords.longitude;
   document.getElementById("accuracy").value = position.coords.accuracy;
   document.getElementById("position_msg").innerHTML
-    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を判定しています";
+    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を判定中";
   document.location.submit();
 }
 
@@ -12747,7 +12747,7 @@ function reset_element() {
   document.getElementById("lon").value = "";
   document.getElementById("accuracy").value = "";
   document.getElementById("position_msg").innerHTML
-    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を取得しています";
+    = "<i class='fa fa-refresh fa-spin'></i>　位置情報を取得中";
 }
 
 // 位置情報を取得できなかった場合のコールバック

@@ -31,6 +31,13 @@ textarea {
   }
 }
 
+.left {
+  text-align: left;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
 .railway-logo {
   text-align: left;
 }
@@ -38,6 +45,10 @@ textarea {
 .container {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.btn-lg {
+  margin: 5px;
 }
 
 /* typography */
@@ -79,7 +90,7 @@ footer {
       color: $gray-darker;
     }
   }
-  div {
+  small {
     float: left;
     margin-left: 5px;
   }
