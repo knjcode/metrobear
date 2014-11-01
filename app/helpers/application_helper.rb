@@ -29,22 +29,17 @@ module ApplicationHelper
   end
 
   # 現在地情報から駅訪問を判定
-  def get_current_station(lat, lon, accuracy, user)
+  def get_current_station(lat, lon, user)
     http_client = HTTPClient.new
 
     # テスト用に銀座駅の座標を指定
-    #lat = 35.670304; lon = 139.7671173; accuracy = 100
-
-    # 誤差が大きすぎる場合は補正する
-    if accuracy.to_i > 100
-      accuracy = 100
-    end
+    #lat = 35.670304; lon = 139.7671173
 
     response = http_client.get PLACES_URL,
       { "rdf:type" => "mlit:Station",
         "lat"      => lat,
         "lon"      => lon,
-        "radius"   => accuracy,
+        "radius"   => 300,
         "acl:consumerKey" => ACCESS_TOKEN }
 
     near_stations = []
