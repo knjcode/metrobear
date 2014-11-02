@@ -5,6 +5,11 @@ class StaticPagesController < ApplicationController
     @accu = params[:accuracy]
   end
 
+  def unvisited
+    @confirm = params[:confirm]
+    @station = params[:station]
+  end
+
   def help
   end
 

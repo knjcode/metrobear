@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/location',    to: 'static_pages#location',    via: 'get'
   match '/location',    to: 'static_pages#location',    via: 'post'
+  match '/unvisited/:station',   to: 'static_pages#unvisited',   via: 'get'
+  match '/unvisited',   to: 'static_pages#unvisited',   via: 'post'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
   resource :user do

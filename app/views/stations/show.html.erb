@@ -11,6 +11,9 @@
     <h4><%= "ようこそ#{METRO_STATION[sn]}駅へ！" %></h4><br />
     <h4><%= "あなたはこの駅に訪問済みです！" %></h4><br />
     <%= raw stamp_tag(sn) %>
+    <p>
+    <%= link_to "この駅の訪問記録を消す", "/unvisited/#{sn}", class: "btn", style: "float: right; color: red;" %>
+    </p>
   <% else %>
     <% #@user.visitings.create(station_id: id) %>
     <h4><%= "あなたはこの駅にまだ訪問していません" %></h4><br />
@@ -19,7 +22,7 @@
   <h4>サインインしていません。</h4>
 <% end %>
 
-<hr>
+<hr style="clear: both;">
 <h4>この駅を訪問した人</h4>
 <ul class="nav nav-pills">
 <% Visiting.where(station_id: id).each do |visiting| %>

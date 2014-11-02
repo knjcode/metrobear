@@ -1,0 +1,28 @@
+<% provide(:title, '駅訪問記録消去の確認') %>
+<% if params[:confirm] == "yes" %>
+<% id = Station.find_by(name: params[:station]).id %>
+  <% if current_user.visiting?(id) %>
+    <% if current_user.unvisit!(id) %>
+      <h4><%= METRO_STATION[params[:station]] %>駅への訪問記録を消去しました</h4>
+    <% else %>
+      <h4><%= METRO_STATION[params[:station]] %>駅への訪問記録を消去できませんでした</h4>
+    <% end %>
+  <% else %>
+    <h4>駅訪問記録がありません</h4>
+  <% end %>
+<% else %>
+  <% if METRO_STATION[params[:station]] %>
+    <h1 class="left">駅訪問記録消去の確認</h1>
+    <hr>
+    <h4><%= METRO_STATION[params[:station]] %>駅に訪問した記録を消去しますか</h4>
+    <form action="<%= unvisited_path %>" name="unvisited" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :confirm, "yes" %>
+      <%= hidden_field_tag :station, params[:station] %>
+      <button type="submit" class="btn btn-danger">消去する</button>
+    </form>
+  <% else %>
+    <h1 class="left">URLが不正です</h1>
+    <%= link_to 'ホームに戻る', root_path %>
+  <% end %>
+<% end %>
