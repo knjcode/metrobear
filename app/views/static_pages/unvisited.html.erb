@@ -7,6 +7,7 @@
     <% else %>
       <h4><%= METRO_STATION[params[:station]] %>駅への訪問記録を消去できませんでした</h4>
     <% end %>
+    <%= link_to 'ホームに戻る', root_path %>
   <% else %>
     <h4>駅訪問記録がありません</h4>
   <% end %>

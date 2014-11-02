@@ -12,8 +12,8 @@
     <h4><%= "あなたはこの駅に訪問済みです！" %></h4><br />
     <%= raw stamp_tag(sn) %>
     <p>
-    <%= link_to "この駅の訪問記録を消す", "/unvisited/#{sn}", class: "btn", style: "float: right; color: red;" %>
-    </p>
+    <%= link_to "この駅の訪問記録を消す", "/unvisited/#{sn}", class: "btn btn-danger", style: "float: right;" %>
+    </p><br />
   <% else %>
     <% #@user.visitings.create(station_id: id) %>
     <h4><%= "あなたはこの駅にまだ訪問していません" %></h4><br />
