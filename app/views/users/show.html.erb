@@ -7,7 +7,14 @@
     </section>
     <section class="visitings">
       <p>訪問済み駅数： <%= @user.visitings.count %></p>
-      <p>登録日： <%= @user.created_at.strftime("%Y/%m/%d") %></p>
+      <% trophy, trophy_num = get_trophy(@user) %>
+      <p>獲得実績数： <%= trophy_num %></p>
+      獲得実績一覧：
+      <ul>
+        <% trophy.each do |name, image| %>
+          <li><img src="/images/<%= image %>" width=75 height=75>　<%= name %></li>
+        <% end %>
+      </ul>
       これまでに訪問した駅一覧：
       <ul class="nav nav-pills">
       <% @user.visitings.each do |visit| %>
@@ -15,6 +22,7 @@
         <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= METRO_STATION[station] %></a></li>
       <% end %>
       </ul>
+      <p>登録日： <%= @user.created_at.strftime("%Y/%m/%d") %></p>
       <% if current_user?(@user) %>
         <%= link_to "#{APP_NAME}を退会する", retire_user_path, class: "btn btn-danger", style: "float: right;" %>
       <% end %>

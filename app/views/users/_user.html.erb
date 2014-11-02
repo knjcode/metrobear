@@ -1,5 +1,5 @@
 <li>
   <%= link_to user.nickname, user %>
   <%= user_avatar user %>
-  <p>訪問済み駅数： <%= user.station_count %></p>
+  <p>訪問済み駅数： <%= user.station_count %>　実績獲得数： <%= trophy_count(user) %></p>
 </li>

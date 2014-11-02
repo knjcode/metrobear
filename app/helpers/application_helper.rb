@@ -28,6 +28,29 @@ module ApplicationHelper
     "<img src='/images/#{railway}/#{id}.png' width='32' height='32' alt='#{id}' />"
   end
 
+  # 実績システム
+  def get_trophy(user)
+    trophy = []
+    trophy_num = 0
+
+    if user.station_count >= 0
+      trophy << ["メンバ登録","/medal/medal-b.jpg"]
+      trophy_num += 1
+    end
+
+    if user.station_count >= 3
+      trophy << ["3駅訪問","/medal/medal-s.jpg"]
+      trophy_num += 1
+    end
+
+    return trophy, trophy_num
+  end
+
+  def trophy_count(user)
+    _, trophy_count = get_trophy(user)
+    return trophy_count
+  end
+
   # 現在地情報から駅訪問を判定
   def get_current_station(lat, lon, user)
     http_client = HTTPClient.new
