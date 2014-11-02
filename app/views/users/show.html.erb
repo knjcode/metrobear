@@ -16,7 +16,7 @@
       <% end %>
       </ul>
       <% if current_user?(@user) %>
-        <%= link_to "#{APP_NAME}を退会する", retire_user_path, class: "btn", style: "float: right; color: red;" %>
+        <%= link_to "#{APP_NAME}を退会する", retire_user_path, class: "btn btn-danger", style: "float: right;" %>
       <% end %>
     </section>
   </aside>
