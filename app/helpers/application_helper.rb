@@ -43,6 +43,11 @@ module ApplicationHelper
       trophy_num += 1
     end
 
+    if user.station_count >= 10
+      trophy << ["10駅訪問","/medal/medal-g.jpg"]
+      trophy_num += 1
+    end
+
     return trophy, trophy_num
   end
 
