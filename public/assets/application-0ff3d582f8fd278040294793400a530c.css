@@ -8261,19 +8261,24 @@ textarea {
   margin: 5px;
 }
 
+/* line 54, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+.avatar {
+  border-radius: 3px;
+}
+
 /* typography */
-/* line 56, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 60, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
-/* line 60, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 64, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 h1, h2, h3 {
   text-align: center;
 }
 
 /* header */
-/* line 66, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 70, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 #logo {
   float: left;
   margin-right: 10px;
@@ -8284,45 +8289,45 @@ h1, h2, h3 {
   font-weight: bold;
   line-height: 1;
 }
-/* line 75, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 79, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 #logo:hover {
   text-decoration: none;
 }
 
 /* footer */
-/* line 82, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 86, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 footer {
   margin-top: 25px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777777;
 }
-/* line 87, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 91, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 footer a {
   color: #555555;
 }
-/* line 89, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 93, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 footer a:hover {
   color: #222222;
 }
-/* line 93, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 97, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 footer small {
   float: left;
   margin-left: 5px;
 }
-/* line 97, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 101, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 footer ul {
   float: right;
   list-style: none;
 }
-/* line 100, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 104, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 footer ul li {
   float: left;
   margin-left: 10px;
 }
 
 /* miscellaneous */
-/* line 109, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 113, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 .debug_dump {
   clear: both;
   float: left;
@@ -8334,23 +8339,23 @@ footer ul li {
 }
 
 /* sidebar */
-/* line 120, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 124, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 aside section {
   padding: 10px 0;
   border-top: 1px solid #eeeeee;
 }
-/* line 123, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 127, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 aside section:first-child {
   border: 0;
   padding-top: 0;
 }
-/* line 127, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 131, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 aside section span {
   display: block;
   margin-bottom: 3px;
   line-height: 1;
 }
-/* line 132, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 136, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 aside section h1 {
   font-size: 1.4em;
   text-align: left;
@@ -8359,14 +8364,14 @@ aside section h1 {
   margin-top: 0px;
 }
 
-/* line 142, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 146, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 .avatar {
   float: left;
   margin-right: 10px;
 }
 
 /* forms */
-/* line 149, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 153, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -8377,34 +8382,34 @@ input, textarea, select, .uneditable-input {
   box-sizing: border-box;
 }
 
-/* line 157, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 161, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 input {
   height: auto !important;
 }
 
-/* line 161, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 165, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 #error_explanation {
   color: #f00;
 }
-/* line 163, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 167, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 #error_explanation ul {
   list-style: none;
   margin: 0 0 18px 0;
 }
 
 /* users index */
-/* line 171, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 175, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 .users {
   list-style: none;
   margin: 0;
 }
-/* line 174, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 178, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 .users li {
   overflow: auto;
   padding: 10px 0;
   border-top: 1px solid #eeeeee;
 }
-/* line 178, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
+/* line 182, /Users/kenji/Dropbox/git/tokyometro-stamp-rally/app/assets/stylesheets/custom.css.scss */
 .users li:last-child {
   border-bottom: 1px solid #eeeeee;
 }
