@@ -7,5 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 METRO_STATION.each_key do |station|
-  Station.create(name: station)
+  if not Station.find_by_name(station)
+    Station.create(name: station)
+  end
 end
