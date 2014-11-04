@@ -10,9 +10,8 @@
       <p>獲得実績数： <%= @user.trophy_count %></p>
       獲得実績一覧：
       <ul>
-        <% trophies = @user.get_trophy %>
-        <% if trophies %>
-          <% trophies.each do |trophy| %>
+        <% if @user.get_trophy %>
+          <% @user.get_trophy.each do |trophy| %>
             <% tr = METRO_TROPHY[trophy] %>
             <li><img src="/images/<%= tr["image"] %>" width=75 height=75>　<%= tr["nickname"] %></li>
           <% end %>
