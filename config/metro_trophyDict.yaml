@@ -36,8 +36,13 @@
 "AnimalMaster":
   "nickname": "アニマルマスター"
   "counts":   3
-  "stagins":  [Toranomon, Kodemmacho, Takadanobaba]
+  "stations": [Toranomon, Kodemmacho, Takadanobaba]
   "image":    "trophy/trophy-s.jpg"
+"ValleyMaster":
+  "nickname": "谷マスター"
+  "counts":   11
+  "stations": [Ichigaya, Iriya, OjiKamiya, Kamiyacho, Shibuya, Zoshigaya, Hibiya, MinamiAsagaya, Myogadani, Yotsuya, YotsuyaSanchome]
+  "image":    "trophy/trophy-g.jpg"
 "Complete":
   "nickname": "全駅マスター"
   "counts":   143
