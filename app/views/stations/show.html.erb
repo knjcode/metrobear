@@ -15,7 +15,7 @@
     <%= link_to "この駅の訪問記録を消す", "/unvisited/#{sn}", class: "btn btn-danger", style: "float: right;" %>
     </p><br />
   <% else %>
-    <% @user.visit!(id) %>
+    <% @user.visit!(id) if ENV["TMSR_AUTO_VISITING"] == "true" %>
     <h4><%= "あなたはこの駅にまだ訪問していません" %></h4><br />
   <% end %>
 <% else %>
