@@ -15,7 +15,7 @@
     <%= link_to "この駅の訪問記録を消す", "/unvisited/#{sn}", class: "btn btn-danger", style: "float: right;" %>
     </p><br />
   <% else %>
-    <% #@user.visitings.create(station_id: id) %>
+    <% @user.visit!(id) %>
     <h4><%= "あなたはこの駅にまだ訪問していません" %></h4><br />
   <% end %>
 <% else %>
