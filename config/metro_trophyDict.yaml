@@ -1,0 +1,40 @@
+"Signup":
+  "nickname": "メンバ登録"
+  "counts":   0
+  "stations": []
+  "image":    "medal/medal-b.jpg"
+"3visited":
+  "nickname": "3駅訪問"
+  "counts":   3
+  "stations": []
+  "image":    "medal/medal-s.jpg"
+"10visited":
+  "nickname": "10駅訪問"
+  "counts":   10
+  "stations": []
+  "image":    "medal/medal-g.jpg"
+"48visited":
+  "nickname": "MTB48（48駅訪問）"
+  "counts":   48
+  "stations": []
+  "image":    "trophy/mtb48.jpg"
+"YoyogiMaster":
+  "nickname": "代々木マスター"
+  "counts":   2
+  "stations": [YoyogiUehara, YoyogiKoen]
+  "image":    "trophy/trophy-b.jpg"
+"ShinjukuMaster":
+  "nickname": "新宿マスター"
+  "counts":   5
+  "stations": [Shinjuku, ShinjukuGyoemmae, ShinjukuSanchome, NishiShinjuku, HigashiShinjuku]
+  "image":    "trophy/trophy-s.jpg"
+"TempleMaster":
+  "nickname": "寺マスター"
+  "counts":   3
+  "stations": [ShinKoenji, HigashiKoenji, Gokokuji]
+  "image":    "trophy/trophy-b.jpg"
+"Complete":
+  "nickname": "全駅マスター"
+  "counts":   143
+  "stations": []
+  "image":    "trophy/complete.jpg"

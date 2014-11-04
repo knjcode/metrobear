@@ -6,13 +6,14 @@
       <%= @user.nickname %></h1>
     </section>
     <section class="visitings">
-      <p>訪問済み駅数： <%= @user.visitings.count %></p>
-      <% trophy, trophy_num = get_trophy(@user) %>
-      <p>獲得実績数： <%= trophy_num %></p>
+      <p>訪問済み駅数： <%= @user.station_count %></p>
+      <p>獲得実績数： <%= @user.trophy_count %></p>
       獲得実績一覧：
+      <% trophies = @user.get_trophy %>
       <ul>
-        <% trophy.each do |name, image| %>
-          <li><img src="/images/<%= image %>" width=75 height=75>　<%= name %></li>
+        <% trophies.each do |trophy| %>
+          <% tr = METRO_TROPHY[trophy] %>
+          <li><img src="/images/<%= tr["image"] %>" width=75 height=75>　<%= tr["nickname"] %></li>
         <% end %>
       </ul>
       これまでに訪問した駅一覧：

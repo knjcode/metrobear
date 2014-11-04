@@ -11,9 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025161820) do
+ActiveRecord::Schema.define(version: 20141104022728) do
 
   create_table "stations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trophies", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,6 +37,7 @@ ActiveRecord::Schema.define(version: 20141025161820) do
     t.string   "uid",                             null: false
     t.string   "nickname",                        null: false
     t.string   "image_url",                       null: false
+    t.text     "trophies"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
