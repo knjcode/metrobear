@@ -85,8 +85,10 @@ class User < ActiveRecord::Base
 
       if station_count >= trophy_count
         station_id_array = []
-        station_array.each do |station|
-          station_id_array << Station.find_by_name(station).id
+        if station_array
+          station_array.each do |station|
+            station_id_array << Station.find_by_name(station).id
+          end
         end
 
         if (station_id_array - visited_stations).empty?
