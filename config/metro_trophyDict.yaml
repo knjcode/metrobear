@@ -33,6 +33,11 @@
   "counts":   3
   "stations": [ShinKoenji, HigashiKoenji, Gokokuji]
   "image":    "trophy/trophy-b.jpg"
+"AnimalMaster":
+  "nickname": "アニマルマスター"
+  "counts":   3
+  "stagins":  [Toranomon, Kodemmacho, Takadanobaba]
+  "image":    "trophy/trophy-s.jpg"
 "Complete":
   "nickname": "全駅マスター"
   "counts":   143
