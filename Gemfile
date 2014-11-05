@@ -26,14 +26,14 @@ gem 'newrelic_rpm'
 gem 'rb-readline'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.9'
-  gem 'rspec-rails', '2.13.1'
+  gem 'sqlite3', '1.3.10'
+  gem 'rspec-rails', '3.1.0'
 end
 
 group :test do
-  gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara', '2.1.0'
-  gem 'factory_girl_rails', '4.2.1'
+  gem 'selenium-webdriver', '2.43.0'
+  gem 'capybara', '2.4.4'
+  gem 'factory_girl_rails', '4.5.0'
 end
 
 group :doc do
