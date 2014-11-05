@@ -33,6 +33,31 @@
   "counts":   3
   "stations": [ShinKoenji, HigashiKoenji, Gokokuji]
   "image":    "trophy/trophy-b.jpg"
+"GateMaster":
+  "nickname": "門マスター"
+  "counts":   4
+  "stations": [Sakuradamon, Toranomon, Hanzomon, MonzenNakacho]
+  "image":    "trophy/trophy-s.jpg"
+"BlockMaster":
+  "nickname": "丁目マスター"
+  "counts":   6
+  "stations": [AoyamaItchome, GinzaItchome, ShinjukuSanchome, HongoSanchome, YotsuyaSanchome, RoppongiItchome]
+  "image":    "trophy/trophy-s.jpg"
+"5charsMaster":
+  "nickname": "5文字以上の駅マスター"
+  "counts":   17
+  "stations": [AoyamaItchome, UenoHirokoji, GinzaItchome, KokkaiGijidomae, ShinOchanomizu,
+               ShinjukuGyoemmae, ShinjukuSanchome, ChikatetsuAkatsuka, ChikatetsuNarimasu,
+               NakanoFujimicho, HongoSanchome, MinamiAsagaya, MeijiJingumae, YotsuyaSanchome,
+               YoyogiUehara, YoyogiKoen, RoppongiItchome]
+  "image":    "trophy/trophy-g.jpg"
+"ColorMaster":
+  "nickname": "カラーマスター"
+  "counts":   14
+  "stations": [AoyamaItchome, Akasaka, AkasakaMitsuke, AkabaneIwabuchi, KiyosumiShirakawa,
+               Ginza, GinzaItchome, Shirokanedai, ShirokaneTakanawa, ChikatetsuAkatsuka,
+               NakaMeguro, HigashiGinza, Meguro]
+  "image":    "trophy/trophy-g.jpg"
 "AnimalMaster":
   "nickname": "アニマルマスター"
   "counts":   3
