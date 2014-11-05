@@ -7,7 +7,7 @@ describe "Static pages" do
   describe "Home page" do
     before { visit root_path }
 
-    it { should have_content('Tokyometro Stamp Rally') }
+    it { should have_content(APP_NAME) }
     it { should have_title(full_title('')) }
     it { should_not have_title('| Home') }
   end
@@ -22,14 +22,14 @@ describe "Static pages" do
   describe "About page" do
     before { visit about_path }
 
-    it { should have_content('About') }
-    it { should have_title(full_title('About Us')) }
+    it { should have_content('本アプリについて') }
+    it { should have_title(full_title('本アプリについて')) }
   end
 
   describe "Contact page" do
     before { visit contact_path }
 
-    it { should have_content('Contact') }
-    it { should have_title(full_title('Contact')) }
+    it { should have_content('お問い合わせ') }
+    it { should have_title(full_title('お問い合わせ')) }
   end
 end
