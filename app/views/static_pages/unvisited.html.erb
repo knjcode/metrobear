@@ -1,6 +1,6 @@
 <% provide(:title, '駅訪問記録消去の確認') %>
 <% if params[:confirm] == "yes" %>
-<% id = Station.find_by(name: params[:station]).id %>
+<% id = METRO_STATION.keys.find_index(params[:station]) %>
   <% if current_user.visiting?(id) %>
     <% if current_user.unvisit!(id) %>
       <h4><%= METRO_STATION[params[:station]] %>駅への訪問記録を消去しました</h4>

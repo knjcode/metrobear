@@ -20,7 +20,7 @@
       これまでに訪問した駅一覧：
       <ul class="nav nav-pills">
       <% @user.visitings.each do |visit| %>
-        <% station = Station.find(visit.station_id).name %>
+        <% station = METRO_STATION.keys[visit.station_id] %>
         <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= METRO_STATION[station] %></a></li>
       <% end %>
       </ul>
