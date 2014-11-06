@@ -30,6 +30,7 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 ## TODO
 
 ### 未実施
+- 銀座線と半蔵門線のトロフィー判定がおかしい
 - トロフィー毎の個別ページの作成
 - 存在しないユーザIDを参照した場合にエラーを出す
 - ツイートボタン、いいねボタンの設置
@@ -96,15 +97,45 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - 3駅目訪問
 - アカウント登録
 
+
+## 利用ライブラリ等
+Ruby on Railsアプリをherokuにおいてる。
+
+- アプリ本体
+    - Ruby on Rails (言わずと知れたWebアプリ用フレームワーク)
+    - Bootstrap (Webアプリ用のテンプレート集、レスポンシブ対応)
+    - Font Awesome (Webアイコンフォント)
+    - OmniAuth (簡単にOAuthを導入)
+        - github認証
+        - facebook認証
+        - twitter認証
+    - 東京メトロAPI (httpclientのgemで叩いてる)
+- 監視・解析
+    - New Relic (アプリ監視)
+    - Google Analytics (アクセス解析)
+- 動作環境
+    - heroku
+        - Zerigo DNSで独自ドメイン (metrobear.tokyo)
+
+
 ## 位置情報の取得
 端末の位置情報はHTML5のGeolocation APIを利用し、javascriptを使って取得しています。  
 位置情報判定ページでは、取得した位置情報をPOSTでサーバ送信し、駅訪問の判定をします。
 
-## ER図の出力
+## ER図
 rails-erdというgemを使う  
+
 ![erd](public/erd.png)
+
 Userモデルとメトロ各駅を登録したStationモデルがあり、駅の訪問はUserとStationに対して多対多の関係をもつVisitingモデルで管理する。  
 駅訪問数や獲得トロフィーについてはUserモデルのカラムに値を保存して管理する。
+
+## テスト
+
+Rspecでやってる。  
+RailsTutorial.jpのサンプルからそのまま持ってきたテストを大幅に簡略化していて、
+各ページが表示されるかどうかぐらいしか見てない。もっと書いたほうが良い。
+
 
 ## 本番環境について
 
