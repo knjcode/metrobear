@@ -79,6 +79,11 @@ tokyometro-stamp-rally　[demo   on heroku](https://tokyometro-stamp-rally.herok
 - 3駅目訪問
 - アカウント登録
 
+### ER図の出力
+
+rails-erdというgemを使う  
+
+
 
 ## 本番環境について
 
