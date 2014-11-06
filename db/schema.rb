@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104022728) do
+ActiveRecord::Schema.define(version: 20141106113839) do
 
   create_table "stations", force: true do |t|
     t.string   "name"
@@ -19,24 +19,24 @@ ActiveRecord::Schema.define(version: 20141104022728) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "trophies", force: true do |t|
     t.string   "name"
-    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.boolean  "admin",           default: false
-    t.string   "provider",                        null: false
-    t.string   "uid",                             null: false
-    t.string   "nickname",                        null: false
-    t.string   "image_url",                       null: false
-    t.text     "trophies"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  create_table "users", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "provider",       null: false
+    t.string   "uid",            null: false
+    t.string   "nickname",       null: false
+    t.string   "image_url",      null: false
+    t.text     "trophies"
+    t.integer  "visiting_count"
+  end
+
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "visitings", force: true do |t|
     t.integer  "user_id"

@@ -2,14 +2,6 @@ class User < ActiveRecord::Base
   has_many :visitings, dependent: :destroy
   has_many :stations, through: :visitings
   serialize :trophies
-  #before_save { self.email = email.downcase }
-  #before_create :create_remember_token
-  #validates :name,  presence: true, length: { maximum: 50 }
-  #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  #validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-  #                  uniqueness: { case_sensitive: false }
-  #has_secure_password
-  #validates :password, length: { minimum: 6 }
 
   def self.find_or_create_from_auth_hash(auth_hash)
     provider = auth_hash[:provider]
@@ -30,7 +22,9 @@ class User < ActiveRecord::Base
     User.find_or_create_by(provider: provider, uid: uid) do |user|
       user.nickname = nickname
       user.image_url = image_url
+      user.visiting_count = 0
       user.set_trophy
+      user.update_count
     end
   end
 
@@ -50,16 +44,18 @@ class User < ActiveRecord::Base
     visitings.create!(station_id: station_id)
     # 駅を訪問した際にトロフィーを更新
     set_trophy
+    update_count
   end
 
   def unvisit!(station_id)
     visitings.find_by_station_id(station_id).destroy
     # 訪問駅が減ったのでトロフィーを更新
     set_trophy
+    update_count
   end
 
-  def station_count
-    visitings.count
+  def update_count
+    update_attribute(:visiting_count, visitings.count)
   end
 
   def trophy_count
@@ -91,7 +87,7 @@ class User < ActiveRecord::Base
       trophy_count  = trophy[1]["counts"]
       station_array = trophy[1]["stations"]
 
-      if station_count >= trophy_count
+      if visiting_count >= trophy_count
         station_id_array = []
         if station_array
           station_array.each do |station|

@@ -15,9 +15,8 @@ tokyometro-stamp-rally　[demo   on heroku](https://tokyometro-stamp-rally.herok
 ## TODO
 
 ### 未実施
-- これまでに訪問した駅一覧表示時に駅数分sql発行しているのを修正する
+- アプリアイコンの追加
 - 存在しないユーザIDを参照した場合にエラーを出す
-- メンバ一覧を駅訪問数や実績数でソートする
 - ツイートボタン、いいねボタンの設置
 - プライバシーポリシーの作成
 - 各駅毎の情報をAPIで取得して表示
@@ -40,6 +39,8 @@ tokyometro-stamp-rally　[demo   on heroku](https://tokyometro-stamp-rally.herok
 - 駅来訪記録の削除機能
 - 自動訪問機能(環境変数TMSR_AUTO_VISITINGがtrueの場合に有効)
 - トロフィー獲得時に通知をだす
+- メンバ一覧を駅訪問数やトロフィー数でソートする
+- これまでに訪問した駅一覧表示時に駅数分sql発行しているのを修正する
 
 ## トロフィー
 

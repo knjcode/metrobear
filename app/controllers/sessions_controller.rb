@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     flash[:success] = 'ログインしました'
     user.set_trophy
+    user.update_count
     redirect_to root_path
   end
 
