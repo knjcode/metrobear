@@ -4,18 +4,33 @@ tokyometro-stamp-rally　[demo   on heroku](https://tokyometro-stamp-rally.herok
 ## 概要
 東京メトロの[オープンデータ活用コンテスト](http://tokyometro10th.jp/future/opendata/index.html)
 応募用に作成中のWebアプリです。  
-アプリを実行しているモバイル端末等の位置情報をもとに東京メトロ各駅（全143駅）への訪問を記録できます。
-
+アプリを実行しているモバイル端末等の位置情報をもとに東京メトロ各駅（全143駅）への訪問を記録できます。  
+訪問済みの駅ごとに色々なスタンプ画像が用意されています。また、特定の駅の組み合わせを訪問した場合にはトロフィーが貰えます。
 
 ## 使い方
 アプリのURLへアクセスしOAuth認証にてログイン後、位置情報判定を実施。  
 東京メトロの駅にいる場合は、その駅への訪問が記録されスタンプ画像がゲットできます。
 
+### 画面イメージ（＠iPhone5)
+![home](public/home.png) ![location-sample](public/location.png) ![member](public/member.png) ![user](public/user.png)
+
+## 利用しているAPI
+
+位置情報を渡すと近隣の東京メトロの駅（複数の場合あり）を返却してくれるAPIを利用する。
+現在地からの有効半径を指定できるが現状は300mに設定している。
+現状では、銀座と東銀座が同時に訪問できたりするが、あまりシビアにしすぎるのもストレスになるかも。
+
+また、メトロの駅にいるときに使うため、必然的に地下で使うことが多くなるが、
+GPSでの位置情報取得と相性が悪いという欠点が、、、  
+Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報の精度があがり、
+なんとか使い物になっているという状況。  
+地下を走行中に各駅停車ごとに判定するとだいたいOKだが、ときどき取得できない駅もあり、だいたい7割ぐたいの感覚。
+
 
 ## TODO
 
 ### 未実施
-- アプリアイコンの追加
+- トロフィー毎の個別ページの作成
 - 存在しないユーザIDを参照した場合にエラーを出す
 - ツイートボタン、いいねボタンの設置
 - プライバシーポリシーの作成
@@ -29,6 +44,7 @@ tokyometro-stamp-rally　[demo   on heroku](https://tokyometro-stamp-rally.herok
 - 各種トロフィーの追加
 
 ### 実施済み
+- 基本機能の実装
 - アカウント削除機能
 - twitterとfacebook認証によるユーザ名衝突の回避
 - 駅来訪者一覧表示
@@ -41,6 +57,7 @@ tokyometro-stamp-rally　[demo   on heroku](https://tokyometro-stamp-rally.herok
 - トロフィー獲得時に通知をだす
 - メンバ一覧を駅訪問数やトロフィー数でソートする
 - これまでに訪問した駅一覧表示時に駅数分sql発行しているのを修正する
+- アプリアイコンの追加
 
 ## トロフィー
 
@@ -79,24 +96,32 @@ tokyometro-stamp-rally　[demo   on heroku](https://tokyometro-stamp-rally.herok
 - 3駅目訪問
 - アカウント登録
 
-### ER図の出力
+## 位置情報の取得
+端末の位置情報はHTML5のGeolocation APIを利用し、javascriptを使って取得しています。  
+位置情報判定ページでは、取得した位置情報をPOSTでサーバ送信し、駅訪問の判定をします。
 
+## ER図の出力
 rails-erdというgemを使う  
-
-
+![erd](public/erd.png)
+Userモデルとメトロ各駅を登録したStationモデルがあり、駅の訪問はUserとStationに対して多対多の関係をもつVisitingモデルで管理する。  
+駅訪問数や獲得トロフィーについてはUserモデルのカラムに値を保存して管理する。
 
 ## 本番環境について
 
-### herokuapp
+### herokuにデプロイ
+herokuのアプリケーションをテスト用、本番用の2つ用意して使い分ける。
 
-herokuのアプリケーションはテスト用、本番用の2つ用意する。
-- テスト tokyometro-stamp-rally.herokuapp.com
-- 本番用 metrobear.herokuapp.com
+- ローカルテスト MacBookのローカル環境
+- Webテスト heroku(tokyometro-stamp-rally.herokuapp.com)
+- 本番環境 heroku(metrobear.herokuapp.com)
+
+herokuデプロイ時の投げ分けはgitのpush先で切り替えるようにしている。
 
 ### ドメインの取得
 独自ドメインとして metrobear.tokyo をムームードメインにて取得。  
 アプリのURLは https://sr.metrobear.tokyo にする。  
 将来の拡張のためにサブドメインを付けておく。  
+
 
 ### herokuへ独自ドメインを設定する
 #### herokuアプリにZerigo DNSのアドオンを追加
@@ -124,7 +149,6 @@ d.ns.zerigo.net
 e.ns.zerigo.net
 f.ns.zerigo.net
 ```
-
 あわせて、ムームードメイン側でCNAMEレコードを追加する。
 （sr.metrobear.tokyoからmetrobear.herokuapp.com
 へリダイレクトされるようにする）
@@ -134,8 +158,8 @@ f.ns.zerigo.net
 
 
 ### 独自ドメインへのSSL(https)導入
-月額5＄程度必要となるため、今回は利用しない。ログイン認証については、
-github、twitter、facebook、それぞれのサイトへリダイレクトされるため暗号化される。
+月額5＄程度必要となるため、今回は利用しない。  
+ログイン認証については、github、twitter、facebook、それぞれのリダイレクト先で通信暗号化された状態で認証されるので問題ない、と思う。
 
 ### OAuth認証の設定
 github、twitter、facebook、それぞれの開発者サイトにて

@@ -24,6 +24,7 @@ gem 'jbuilder', '2.2.4'
 
 gem 'newrelic_rpm'
 gem 'rb-readline'
+gem 'rails-erd'
 
 group :development, :test do
   gem 'sqlite3', '1.3.10'
