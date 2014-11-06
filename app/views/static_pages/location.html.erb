@@ -13,7 +13,8 @@
     </form>
   <% end %>
   <% if params[:lat] then %>
-    <% near_stations, visited_stations = get_current_station(@lat,@lon,current_user) %>
+    <% near_stations, visited_stations, message = get_current_station(@lat,@lon,current_user) %>
+    <% flash[:success] = message if message.present? %>
     <% station = near_stations[0] %>
     <% if station then %>
       <h3><%= METRO_STATION[station] %>駅にいます</h3>
@@ -38,7 +39,8 @@
 <% if Rails.env.development? and params[:lat] %>
 <pre class="debug_damp">debug:
 near　<%= near_stations %>
-visited　<%= visited_stations %></pre>
+visited　<%= visited_stations %>
+message <%= message %></pre>
 <% end %>
 
 <% if not params[:lat]%>

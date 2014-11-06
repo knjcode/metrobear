@@ -74,8 +74,16 @@ class User < ActiveRecord::Base
   def set_trophy
     # array of visited station_id
     visited_stations = visitings.pluck(:station_id)
-    # reset trophies
-    trophies = []
+
+    # backup trophies
+    if trophies.nil?
+      old_trophies = []
+    else
+      old_trophies = trophies
+    end
+
+    new_trophies = []
+    flash_message = ""
 
     # foreach trophy
     METRO_TROPHY.each do |trophy|
@@ -92,12 +100,24 @@ class User < ActiveRecord::Base
         end
 
         if (station_id_array - visited_stations).empty?
-          trophies << trophy_name
+          new_trophies << trophy_name
         end
       end
     end
 
-    update_attribute(:trophies, trophies)
+    update_attribute(:trophies, new_trophies)
+
+    if (new_trophies - old_trophies).present?
+      (new_trophies - old_trophies).each do |trophy|
+        flash_message << METRO_TROPHY[trophy]["nickname"] << " "
+      end
+    end
+
+    if flash_message.present?
+      flash_message << "のトロフィーを獲得しました！"
+    end
+
+    return flash_message
   end
 
   private
