@@ -23,8 +23,6 @@ class User < ActiveRecord::Base
       user.nickname = nickname
       user.image_url = image_url
       user.visiting_count = 0
-      user.set_trophy
-      user.update_count
     end
   end
 
@@ -34,6 +32,16 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def update_image(auth_hash)
+    provider = auth_hash[:provider]
+
+    if provider == "github"
+      update_attribute(:image_url, auth_hash[:extra][:raw_info][:avatar_url])
+    else
+      update_attribute(:image_url, auth_hash[:info][:image])
+    end
   end
 
   def visiting?(station_id)
