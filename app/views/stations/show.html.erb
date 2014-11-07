@@ -4,7 +4,7 @@
 <section>
 <h3><%= METRO_STATION[sn] %>駅</h3>
 
-<% id = METRO_STATION.keys.find_index(sn) %>
+<% id = METRO_STATION.keys.find_index(sn)+1 %>
 <% @user ||= current_user %>
 <% if signed_in? %>
   <% if @user.visiting?(id) %>

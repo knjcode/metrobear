@@ -54,7 +54,7 @@ module ApplicationHelper
 
     near_stations.each do |station|
       if METRO_STATION.keys.include?(station)
-        station_id = METRO_STATION.keys.find_index(station)
+        station_id = METRO_STATION.keys.find_index(station)+1
 
         if user.present?
           unless user.visiting?(station_id) then

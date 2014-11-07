@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
         station_id_array = []
         if station_array
           station_array.each do |station|
-            station_id_array << METRO_STATION.keys.find_index(station)
+            station_id_array << METRO_STATION.keys.find_index(station)+1
           end
         end
 
