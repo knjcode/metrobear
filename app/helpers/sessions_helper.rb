@@ -13,7 +13,8 @@ module SessionsHelper
 
   def authenticate
     return if logged_in?
-    redirect_to root_path, alert: 'ログインしてください'
+    flash[:warning] = 'ログインしてください'
+    redirect_to root_path
   end
 
   def signed_in?
