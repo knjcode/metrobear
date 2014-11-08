@@ -31,6 +31,8 @@ group :development, :test do
   gem 'pry-byebug', '2.0.0'
   gem 'sqlite3', '1.3.10'
   gem 'rspec-rails', '3.1.0'
+  gem 'hirb', '~> 0.7.2'
+  gem 'hirb-unicode', '~> 0.0.5'
 end
 
 group :test do
