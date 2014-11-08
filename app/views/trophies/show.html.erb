@@ -10,11 +10,10 @@
 <% trophies = @user.get_trophy %>
 
   <% if trophies.include?(trophy) %>
+    <p>獲得条件：<%= tr["comment"] %></p>
     <p>あなたはこのトロフィーを取得済みです！</p>
-    <img src="/images/<%= tr["image"] %>" width="300" height="300" />
-    <p>取得条件</p>
-    <p>訪問駅数：<%= tr["counts"] %></p>
-    <p>訪問駅一覧：<ul>
+    <p><img src="/images/<%= tr["image"] %>" width="300" height="300" /></p>
+    <p>トロフィー獲得に必要な駅：<ul>
     <% if tr["stations"].count == 0 %>
       <li>なし</li>
     <% else %>

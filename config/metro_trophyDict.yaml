@@ -3,46 +3,55 @@
   "counts":   0
   "stations": []
   "image":    "medal/medal-b.jpg"
+  "comment":  "メンバ登録を完了"
 "3visited":
   "nickname": "3駅訪問"
   "counts":   3
   "stations": []
   "image":    "medal/medal-s.jpg"
+  "comment":  "任意の駅を3駅訪問"
 "10visited":
   "nickname": "10駅訪問"
   "counts":   10
   "stations": []
   "image":    "medal/medal-g.jpg"
+  "comment":  "任意の駅を10駅訪問"
 "YoyogiMaster":
   "nickname": "代々木マスター"
   "counts":   2
   "stations": [YoyogiUehara, YoyogiKoen]
   "image":    "trophy/trophy-b.jpg"
+  "comment":  "名前に「代々木」を含む駅をすべて訪問"
 "TempleMaster":
   "nickname": "寺マスター"
   "counts":   3
   "stations": [ShinKoenji, HigashiKoenji, Gokokuji]
   "image":    "trophy/trophy-b.jpg"
+  "comment":  "名前に「寺」を含む駅をすべて訪問"
 "ShinjukuMaster":
   "nickname": "新宿マスター"
   "counts":   5
   "stations": [Shinjuku, ShinjukuGyoemmae, ShinjukuSanchome, NishiShinjuku, HigashiShinjuku]
   "image":    "trophy/trophy-s.jpg"
+  "comment":  "名前に「新宿」を含む駅をすべて訪問"
 "GateMaster":
   "nickname": "門マスター"
   "counts":   4
   "stations": [Sakuradamon, Toranomon, Hanzomon, MonzenNakacho]
   "image":    "trophy/trophy-s.jpg"
+  "comment":  "名前に「門」を含む駅をすべて訪問"
 "BlockMaster":
   "nickname": "丁目マスター"
   "counts":   6
   "stations": [AoyamaItchome, GinzaItchome, ShinjukuSanchome, HongoSanchome, YotsuyaSanchome, RoppongiItchome]
   "image":    "trophy/trophy-s.jpg"
+  "comment":  "名前に「丁目」を含む駅をすべて訪問"
 "AnimalMaster":
   "nickname": "アニマルマスター"
   "counts":   3
   "stations": [Toranomon, Kodemmacho, Takadanobaba]
   "image":    "trophy/trophy-s.jpg"
+  "comment":  "名前に動物を含む駅をすべて訪問"
 "5charsMaster":
   "nickname": "5文字以上の駅マスター"
   "counts":   17
@@ -51,6 +60,7 @@
                NakanoFujimicho, HongoSanchome, MinamiAsagaya, MeijiJingumae, YotsuyaSanchome,
                YoyogiUehara, YoyogiKoen, RoppongiItchome]
   "image":    "trophy/trophy-g.jpg"
+  "comment":  "駅名が5文字以上の駅をすべて訪問"
 "ColorMaster":
   "nickname": "カラーマスター"
   "counts":   14
@@ -58,16 +68,19 @@
                Ginza, GinzaItchome, Shirokanedai, ShirokaneTakanawa, ChikatetsuAkatsuka,
                NakaMeguro, HigashiGinza, Meguro]
   "image":    "trophy/trophy-g.jpg"
+  "comment":  "名前に色名を含む駅をすべて訪問"
 "ValleyMaster":
   "nickname": "谷マスター"
   "counts":   11
   "stations": [Ichigaya, Iriya, OjiKamiya, Kamiyacho, Shibuya, Zoshigaya, Hibiya, MinamiAsagaya, Myogadani, Yotsuya, YotsuyaSanchome]
   "image":    "trophy/trophy-g.jpg"
+  "comment":  "名前に「谷」を含む駅をすべて訪問"
 "48visited":
   "nickname": "MTB48（48駅訪問）"
   "counts":   48
   "stations": []
   "image":    "trophy/mtb48.jpg"
+  "comment":  "任意の駅を48駅訪問"
 "GinzaMaster":
   "nickname": "銀座線マスター"
   "counts":   19
@@ -75,6 +88,7 @@
                Shimbashi, Ginza, Kyobashi, Nihombashi, Mitsukoshimae, Kanda, Suehirocho, UenoHirokoji,
               Ueno, Inaricho, Tawaramachi, Asakusa]
   "image":    "crown/crown-Ginza.jpg"
+  "comment":  "銀座線の駅をすべて訪問"
 "MarunouchiMaster":
   "nickname": "丸ノ内線マスター"
   "counts":   28
@@ -83,6 +97,7 @@
                YotsuyaSanchome, Yotsuya, AkasakaMitsuke, KokkaiGijidomae, Kasumigaseki, Ginza, Tokyo, Otemachi,
                Awajicho, Ochanomizu, HongoSanchome, Korakuen, Myogadani, ShinOtsuka, Ikebukuro]
   "image":    "crown/crown-Marunouchi.jpg"
+  "comment":  "丸ノ内線の駅をすべて訪問"
 "HibiyaMaster":
   "nickname": "日比谷線マスター"
   "counts":   21
@@ -90,6 +105,7 @@
                Tsukiji, Hatchobori, Kayabacho, Ningyocho, Kodemmacho, Akihabara, NakaOkachimachi, Ueno,
                Iriya, Minowa, MinamiSenju, KitaSenju]
   "image":    "crown/crown-Hibiya.jpg"
+  "comment":  "日比谷線の駅をすべて訪問"
 "TozaiMaster":
   "nickname": "東西線マスター"
   "counts":   23
@@ -97,6 +113,7 @@
                Nihombashi, Kayabacho, MonzenNakacho, Kiba, Toyocho, MinamiSunamachi, NishiKasai, Kasai, Urayasu,
                MinamiGyotoku, Gyotoku, Myoden, BarakiNakayama, NishiFunabashi]
   "image":    "crown/crown-Tozai.jpg"
+  "comment":  "東西線の駅をすべて訪問"
 "ChiyodaMaster":
   "nickname": "千代田線マスター"
   "counts":   20
@@ -104,6 +121,7 @@
                Kasumigaseki, Hibiya, Nijubashimae, Otemachi, ShinOchanomizu, Yushima, Nezu, Sendagi, NishiNippori,
                Machiya, KitaSenju, Ayase, KitaAyase]
   "image":    "crown/crown-Chiyoda.jpg"
+  "comment":  "千代田線の駅をすべて訪問"
 "YurakuchoMaster":
   "nickname": "有楽町線マスター"
   "counts":   24
@@ -111,12 +129,14 @@
                Kanamecho, Ikebukuro, HigashiIkebukuro, Gokokuji, Edogawabashi, Iidabashi, Ichigaya, Kojimachi,
                Nagatacho, Sakuradamon, Yurakucho, GinzaItchome, Shintomicho, Tsukishima, Toyosu, Tatsumi]
   "image":    "crown/crown-Yurakucho.jpg"
+  "comment":  "有楽町線の駅をすべて訪問"
 "HanzomonMaster":
   "nickname": "半蔵門線マスター"
   "counts":   14
   "stations": [Shibuya, OmoteSando, AoyamaItchome, Nagatacho, Hanzomon, Kudanshita, Jimbocho, Otemachi,
                Mitsukoshimae, Suitengumae, KiyosumiShirakawa, Sumiyoshi, Kinshicho, Oshiage]
   "image":    "crown/crown-Hanzomon.jpg"
+  "comment":  "半蔵門線の駅をすべて訪問"
 "NambokuMaster":
   "nickname": "南北線マスター"
   "counts":   19
@@ -124,6 +144,7 @@
                Yotsuya, Ichigaya, Iidabashi, Korakuen, Todaimae, HonKomagome, Komagome, Nishigahara, Oji,
                OjiKamiya, Shimo, AkabaneIwabuchi]
   "image":    "crown/crown-Namboku.jpg"
+  "comment":  "南北線の駅をすべて訪問"
 "FukutoshinMaster":
   "nickname": "副都心線マスター"
   "counts":   16
@@ -131,8 +152,10 @@
                Kanamecho, Ikebukuro, Zoshigaya, NishiWaseda, HigashiShinjuku, ShinjukuSanchome, KitaSando,
                MeijiJingumae, Shibuya]
   "image":    "crown/crown-Fukutoshin.jpg"
+  "comment":  "副都心線の駅をすべて訪問"
 "Complete":
   "nickname": "全駅マスター"
   "counts":   143
   "stations": []
   "image":    "trophy/complete.jpg"
+  "comment":  "東京メトロ143駅をすべて訪問"
