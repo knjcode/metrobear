@@ -12,13 +12,6 @@ describe "Static pages" do
     it { should_not have_title('| #{APP_NAME}') }
   end
 
-  describe "Help page" do
-    before { visit help_path }
-
-    it { should have_content('アプリの使い方') }
-    it { should have_title(full_title('アプリの使い方')) }
-  end
-
   describe "About page" do
     before { visit about_path }
 
@@ -31,6 +24,13 @@ describe "Static pages" do
 
     it { should have_content('お問い合わせ') }
     it { should have_title(full_title('お問い合わせ')) }
+  end
+
+  describe "Privacy page" do
+    before { visit privacy_path }
+
+    it { should have_content('プライバシーポリシー') }
+    it { should have_title(full_title('プライバシーポリシー')) }
   end
 
   describe "Location page" do
