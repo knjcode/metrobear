@@ -15,8 +15,8 @@ describe "Static pages" do
   describe "Help page" do
     before { visit help_path }
 
-    it { should have_content('Help') }
-    it { should have_title(full_title('Help')) }
+    it { should have_content('アプリの使い方') }
+    it { should have_title(full_title('アプリの使い方')) }
   end
 
   describe "About page" do
@@ -32,4 +32,12 @@ describe "Static pages" do
     it { should have_content('お問い合わせ') }
     it { should have_title(full_title('お問い合わせ')) }
   end
+
+  describe "Location page" do
+    before { visit location_path }
+
+    it { should have_content('位置情報を取得中')}
+    it { should have_title(full_title('現在地判定'))}
+  end
+
 end

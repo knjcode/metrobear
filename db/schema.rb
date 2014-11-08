@@ -19,12 +19,6 @@ ActiveRecord::Schema.define(version: 20141108010138) do
     t.datetime "updated_at"
   end
 
-  create_table "trophies", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141108010138) do
     t.string   "nickname",                   null: false
     t.string   "image_url",                  null: false
     t.text     "trophies"
-    t.integer  "visiting_count"
+    t.integer  "visiting_count", default: 0
     t.integer  "trophy_count",   default: 0
   end
 
