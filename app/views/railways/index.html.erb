@@ -18,7 +18,7 @@
   <ul class="nav nav-pills">
     <% METRO_RAILSTA[railway].each do |stations| %>
       <% stations.each do |_, station| %>
-        <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= METRO_STATION[station] %></a></li>
+        <li><%= link_to METRO_STATION[station], station_path(id:station) %></li>
       <% end %>
     <% end %>
   </ul>

@@ -13,7 +13,7 @@
         <% if @user.get_trophy %>
           <% @user.get_trophy.each do |trophy| %>
             <% tr = METRO_TROPHY[trophy] %>
-            <li><img src="/images/<%= tr["image"] %>" width=75 height=75>　<%= tr["nickname"] %></li>
+            <li><img src="/images/<%= tr["image"] %>" width=75 height=75>　<a href="<%= url_for :controller => 'trophies', :action => 'show', :id => trophy %>"><%= tr["nickname"] %></a></li>
           <% end %>
         <% end %>
       </ul>
@@ -22,7 +22,7 @@
       <% @user.visitings.pluck(:station_id).each do |id| %>
         <% station = METRO_STATION.keys[id] %>
         <% if station.present? %>
-          <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= METRO_STATION[station] %></a></li>
+          <li><%= link_to METRO_STATION[station], station_path(id:station) %></li>
         <% end %>
       <% end %>
       </ul>

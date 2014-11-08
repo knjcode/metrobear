@@ -1,0 +1,33 @@
+<% trophy = params[:id] %>
+<% tr = METRO_TROPHY[trophy] %>
+<% provide(:title, "トロフィー："+tr["nickname"]) %>
+
+<section>
+<h1 class="left"><%= tr["nickname"] %></h3>
+<hr>
+<% @user ||= current_user %>
+<% if signed_in? %>
+<% trophies = @user.get_trophy %>
+
+  <% if trophies.include?(trophy) %>
+    <p>あなたはこのトロフィーを取得済みです！</p>
+    <img src="/images/<%= tr["image"] %>" width="300" height="300" />
+    <p>取得条件</p>
+    <p>訪問駅数：<%= tr["counts"] %></p>
+    <p>訪問駅一覧：<ul>
+    <% if tr["stations"].count == 0 %>
+      <li>なし</li>
+    <% else %>
+      <% tr["stations"].each do |station| %>
+        <li><%= link_to METRO_STATION[station], station_path(id:station) %></li>
+      <% end %>
+    <% end %>
+    </ul></p>
+  <% else %>
+    <p>あなたはまだこのトロフィーを取得していません。</p>
+    <img src="/images/trophy/blank.jpg" width="300" height="300" alt="blank" />
+  <% end %>
+
+<% end %>
+
+</section>

@@ -1,9 +1,10 @@
 <% sn = params[:id] %>
 <% rn = params[:railway] %>
+<% provide(:title, METRO_STATION[sn]) %>
 
 <section>
-<h3><%= METRO_STATION[sn] %>駅</h3>
-
+<h1 class="left"><%= METRO_STATION[sn] %>駅</h3>
+<hr>
 <% id = METRO_STATION.keys.find_index(sn)+1 %>
 <% @user ||= current_user %>
 <% if signed_in? %>

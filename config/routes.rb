@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resources :railways, only: [:show]
   resources :stations, only: [:show]
+  resources :trophies, only: [:index, :show]
 
   root  'railways#index'
   match '/about',   to: 'static_pages#about',   via: 'get'

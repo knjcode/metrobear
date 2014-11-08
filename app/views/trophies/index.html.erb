@@ -1,0 +1,22 @@
+<% provide(:title, 'トロフィー一覧') %>
+
+<section>
+<h1 class="left">トロフィー一覧</h1>
+<hr>
+<% @user ||= current_user %>
+<% if signed_in? %>
+  <% trophies = @user.get_trophy %>
+  <ul>
+  <% METRO_TROPHY.each do |trophy| %>
+    <% if trophies.include?(trophy[0]) %>
+      <li><%= link_to trophy[1]["nickname"], trophy_path(id:trophy[0]) %></li>
+    <% else %>
+      <li>?</li>
+    <% end %>
+  <% end %>
+  </ul>
+<% else %>
+  <h4>サインインしていません。</h4>
+<% end %>
+
+</section>
