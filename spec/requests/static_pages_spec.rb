@@ -15,8 +15,9 @@ describe "Static pages" do
   describe "About page" do
     before { visit about_path }
 
-    it { should have_content('本アプリについて') }
-    it { should have_title(full_title('本アプリについて')) }
+    it { should have_content('アプリの使い方') }
+    it { should have_content('アプリについて') }
+    it { should have_title(full_title('アプリの使い方')) }
   end
 
   describe "Contact page" do
@@ -26,11 +27,11 @@ describe "Static pages" do
     it { should have_title(full_title('お問い合わせ')) }
   end
 
-  describe "Privacy page" do
-    before { visit privacy_path }
+  describe "Terms page" do
+    before { visit terms_path }
 
-    it { should have_content('プライバシーポリシー') }
-    it { should have_title(full_title('プライバシーポリシー')) }
+    it { should have_content('利用規約') }
+    it { should have_title(full_title('利用規約')) }
   end
 
   describe "Location page" do

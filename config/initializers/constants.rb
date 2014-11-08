@@ -21,13 +21,13 @@ WH = {
 
 # Tokyometro color schemes
 CS = {
-  "Ginza"=>"#f39700",
-  "Marunouchi"=>"#e60012",
-  "Hibiya"=>"#9caeb7",
-  "Tozai"=>"#00a7db",
-  "Chiyoda"=>"#009944",
-  "Yurakucho"=>"#d7c447",
-  "Hanzomon"=>"#9b7cb6",
-  "Namboku"=>"#00ada9",
-  "Fukutoshin"=>"#bb641d"
+  "Ginza"=>"#ff9500",
+  "Marunouchi"=>"#f62e36",
+  "Hibiya"=>"#b5b5ac",
+  "Tozai"=>"#009bbf",
+  "Chiyoda"=>"#00bb85",
+  "Yurakucho"=>"#c1a470",
+  "Hanzomon"=>"#8f76d6",
+  "Namboku"=>"#00ac9b",
+  "Fukutoshin"=>"#9c5e31"
 }

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root  'railways#index'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
-  match '/privacy', to: 'static_pages#privacy', via: 'get'
+  match '/terms',   to: 'static_pages#terms',   via: 'get'
   match '/location',    to: 'static_pages#location',    via: 'get'
   match '/location',    to: 'static_pages#location',    via: 'post'
   match '/unvisited/:station',   to: 'static_pages#unvisited',   via: 'get'
