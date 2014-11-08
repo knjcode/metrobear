@@ -13,7 +13,8 @@
     <p>獲得条件：<%= tr["comment"] %></p>
     <p>あなたはこのトロフィーを取得済みです！</p>
     <p><img src="/images/<%= tr["image"] %>" width="300" height="300" /></p>
-    <p>トロフィー獲得に必要な駅：<ul>
+    <p>トロフィー獲得に必要な駅：
+    <ul class="nav nav-pills">
     <% if tr["stations"].count == 0 %>
       <li>なし</li>
     <% else %>
