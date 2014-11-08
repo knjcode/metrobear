@@ -20,7 +20,7 @@
       これまでに訪問した駅一覧：
       <ul class="nav nav-pills">
       <% @user.visitings.pluck(:station_id).each do |id| %>
-        <% station = METRO_STATION.keys[id] %>
+        <% station = METRO_STATION.keys[id-1] %>
         <% if station.present? %>
           <li><%= link_to METRO_STATION[station], station_path(id:station) %></li>
         <% end %>
