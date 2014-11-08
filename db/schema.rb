@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106113839) do
+ActiveRecord::Schema.define(version: 20141108010138) do
 
   create_table "stations", force: true do |t|
     t.string   "name"
@@ -28,12 +28,13 @@ ActiveRecord::Schema.define(version: 20141106113839) do
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "provider",       null: false
-    t.string   "uid",            null: false
-    t.string   "nickname",       null: false
-    t.string   "image_url",      null: false
+    t.string   "provider",                   null: false
+    t.string   "uid",                        null: false
+    t.string   "nickname",                   null: false
+    t.string   "image_url",                  null: false
     t.text     "trophies"
     t.integer  "visiting_count"
+    t.integer  "trophy_count",   default: 0
   end
 
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true

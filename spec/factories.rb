@@ -4,11 +4,7 @@ FactoryGirl.define do
     sequence(:uid)  { |n| "#{n}" }
     sequence(:nickname) { |n| "person_#{n}"}
     sequence(:image_url) { "example.com" }
-    #password "foobar"
-    #password_confirmation "foobar"
-
-    # factory :admin do
-    #   admin true
-    # end
+    sequence(:visiting_count) { 0 }
+    sequence(:trophy_count) { 0 }
   end
 end

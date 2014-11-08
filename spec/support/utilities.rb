@@ -12,7 +12,9 @@ def login(user)
     'provider' => user.provider,
     'uid' => user.id,
     'nickname' => user.nickname,
-    'image_url' => user.image_url
+    'image_url' => user.image_url,
+    'visiting_count' => 0,
+    'trophy_count' => 0
     })
   post '/auth/twitter/callback'
 end

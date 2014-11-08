@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
       user.nickname = nickname
       user.image_url = image_url
       user.visiting_count = 0
+      user.trophy_count = 0
     end
   end
 
@@ -66,10 +67,6 @@ class User < ActiveRecord::Base
     update_attribute(:visiting_count, visitings.count)
   end
 
-  def trophy_count
-    trophies.count
-  end
-
   def get_trophy
     # 取得済みトロフィーを配列で返す
     trophies
@@ -110,6 +107,7 @@ class User < ActiveRecord::Base
     end
 
     update_attribute(:trophies, new_trophies)
+    update_attribute(:trophy_count, new_trophies.count)
 
     if (new_trophies - old_trophies).present?
       (new_trophies - old_trophies).each do |trophy|
