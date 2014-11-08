@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate
 
   def index
-    @users = User.paginate(page: params[:page]).order( 'trophy_count DESC', 'visiting_count DESC')
+    @users = User.paginate(page: params[:page], per_page: 15).order( 'trophy_count DESC', 'visiting_count DESC')
   end
 
   def show
