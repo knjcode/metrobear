@@ -30,7 +30,6 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 ## TODO
 
 ### 未実施
-- Google oauthの実装
 - facebookのfacepile設置
 - ツイートボタン、いいねボタンの設置
 - 各駅毎の情報をAPIで取得して表示
@@ -65,6 +64,7 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - 各駅へのスタンプ画像の追加
 - pgbackupsの導入(Auto - One Month Retention)
 - papertrailの導入(papertrail:choklad)
+- Google oauthの実装
 
 
 ## トロフィー
