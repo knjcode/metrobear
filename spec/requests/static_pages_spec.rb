@@ -41,4 +41,20 @@ describe "Static pages" do
     it { should have_title(full_title('現在地判定'))}
   end
 
+  METRO_STATION.each do |station|
+    describe "Station page" do
+      before { visit station_path(id:station) }
+
+      it { should have_content(METRO_STATION[station]) }
+    end
+  end
+
+  METRO_TROPHY.each do |trophy|
+    describe "Trophy page" do
+      before { visit trophy_path(id:trophy) }
+
+      it { should have_content(METRO_TROPHY[trophy[1]["nickname"]])}
+    end
+  end
+
 end
