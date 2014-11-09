@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
       image_url = auth_hash[:info][:image]
     end
 
-    if provider == "facebook"
+    if provider == "facebook" || provider == "google_oauth2"
       nickname = auth_hash[:info][:name]
     else
       nickname = auth_hash[:info][:nickname]

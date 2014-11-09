@@ -30,6 +30,8 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 ## TODO
 
 ### 未実施
+- Google oauthの実装
+- facebookのfacepile設置
 - ツイートボタン、いいねボタンの設置
 - 各駅毎の情報をAPIで取得して表示
 - メトロAPIの連続投入制限機能
@@ -61,6 +63,8 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - トロフィー毎の個別ページの作成
 - 存在しないユーザIDを参照した場合にエラーを出す
 - 各駅へのスタンプ画像の追加
+- pgbackupsの導入(Auto - One Month Retention)
+- papertrailの導入(papertrail:choklad)
 
 
 ## トロフィー
@@ -193,13 +197,14 @@ f.ns.zerigo.net
 
 ### 独自ドメインへのSSL(https)導入
 月額5＄程度必要となるため、今回は利用しない。  
-ログイン認証については、github、twitter、facebook、それぞれのリダイレクト先で通信暗号化された状態で認証されるので問題ない、と思う。
+ログイン認証については、github、twitter、facebook、google、それぞれのリダイレクト先で通信暗号化された状態で認証されるので問題ない、と思う。
 
 ### OAuth認証の設定
-github、twitter、facebook、それぞれの開発者サイトにて
+github、twitter、facebook、google、それぞれの開発者サイトにて
 認証に必要なAPIキーを取得する。
+googleのプロジェクトを作った後は「Contacts API」「Google+ API」の２つをONにする。
 
-以下の計6つのAPIキーをherokuの環境変数に設定する。
+以下の計8つのAPIキーをherokuの環境変数に設定する。
 ```
 TMSR_TWITTER_CONSUMER_KEY
 TMSR_TWITTER_CONSUMER_SECRET
@@ -207,6 +212,8 @@ TMSR_FACEBOOK_APP_ID
 TMSR_FACEBOOK_APP_SECRET
 TMSR_GITHUB_CLIENT_ID
 TMSR_GITHUB_APP_IDHUB_CLIENT_SECRET
+TMSR_GOOGLE_CLIENT_ID
+TMSR_GOOGLE_CLIENT_SECRET
 ```
 
 ### デプロイ先

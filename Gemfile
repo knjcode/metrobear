@@ -14,6 +14,7 @@ gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-twitter', '~> 1.1.0'
 gem 'omniauth-facebook', '~> 2.0.0'
 gem 'omniauth-github', '~> 1.1.2'
+gem 'omniauth-google-oauth2', '~> 0.2.6'
 
 gem 'sass-rails', '4.0.4'
 gem 'uglifier', '2.5.3'
