@@ -38,7 +38,6 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 
 ### 実施中
 - アプリの使い方
-- 利用規約ページ（プライバシーポリシー含む）
 
 ### 実施済み
 - 基本機能の実装
@@ -65,6 +64,9 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - pgbackupsの導入(Auto - One Month Retention)
 - papertrailの導入(papertrail:choklad)
 - Google oauthの実装
+- oauth認証時にnicknameが変更されてたら更新する
+- 利用規約ページ（プライバシーポリシー含む）
+- googleログイン認証ページのアイコン画像が表示されない(ssl経由の画像じゃないとだめ)
 
 
 ## トロフィー
