@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
-  def update_image(auth_hash)
+  def update_userinfo(auth_hash)
     provider = auth_hash[:provider]
 
     if provider == "github"
@@ -43,6 +43,13 @@ class User < ActiveRecord::Base
     else
       update_attribute(:image_url, auth_hash[:info][:image])
     end
+
+    if provider == "facebook" || provider == "google_oauth2"
+      update_attribute(:nickname, auth_hash[:info][:name])
+    else
+      update_attribute(:nickname, auth_hash[:info][:nickname])
+    end
+
   end
 
   def visiting?(station_id)
