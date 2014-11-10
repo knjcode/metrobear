@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.1.7'
-gem 'thin', '1.6.3'
+gem 'unicorn'
 gem 'bootstrap-sass', '3.3.0.1'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt', '3.1.9'
