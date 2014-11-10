@@ -21,3 +21,4 @@ doc/
 stamplist.sh
 out.html
 
+.env
