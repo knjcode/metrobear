@@ -28,8 +28,9 @@ gem 'rb-readline'
 gem 'rails-erd'
 
 group :development, :test do
+  gem 'pry', '0.9.12.6'
   gem 'pry-rails', '0.3.2'
-  gem 'pry-byebug', '2.0.0'
+  gem 'pry-byebug', '1.3.2'
   gem 'sqlite3', '1.3.10'
   gem 'rspec-rails', '3.1.0'
   gem 'hirb', '~> 0.7.2'
