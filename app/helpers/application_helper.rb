@@ -42,31 +42,35 @@ module ApplicationHelper
         "radius"   => 300,
         "acl:consumerKey" => ACCESS_TOKEN }
 
-    near_stations = []
-    visited_stations = []
-    message = ""
-    JSON.parse(response.body).each do |station|
-      if station["mlit:operatorName"] == "東京地下鉄"
-        # 日本語表記の駅名から英名を逆引き
-        near_stations << METRO_STATION.key(station["mlit:stationName"])
+    if response.code == 200
+      near_stations = []
+      visited_stations = []
+      message = ""
+      JSON.parse(response.body).each do |station|
+        if station["mlit:operatorName"] == "東京地下鉄"
+          # 日本語表記の駅名から英名を逆引き
+          near_stations << METRO_STATION.key(station["mlit:stationName"])
+        end
       end
-    end
 
-    near_stations.each do |station|
-      if METRO_STATION.keys.include?(station)
-        station_id = METRO_STATION.keys.find_index(station)+1
+      near_stations.each do |station|
+        if METRO_STATION.keys.include?(station)
+          station_id = METRO_STATION.keys.find_index(station)+1
 
-        if user.present?
-          unless user.visiting?(station_id) then
-            # visit!メソッド内でset_trophyが呼ばれるため、応答をmessageに追記していく
-            message << user.visit!(station_id) << " "
-            visited_stations << METRO_STATION[station]
+          if user.present?
+            unless user.visiting?(station_id) then
+              # visit!メソッド内でset_trophyが呼ばれるため、応答をmessageに追記していく
+              message << user.visit!(station_id) << " "
+              visited_stations << METRO_STATION[station]
+            end
           end
         end
       end
+      return near_stations, visited_stations, message
+    else
+      return false, response.code
     end
 
-    return near_stations, visited_stations, message
   end
 
   def google_analytics_tracking_code

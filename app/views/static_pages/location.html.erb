@@ -14,18 +14,23 @@
   <% end %>
   <% if params[:lat] then %>
     <% near_stations, visited_stations, message = get_current_station(@lat,@lon,current_user) %>
-    <% flash[:success] = message if message.present? %>
-    <% station = near_stations[0] %>
-    <% if station then %>
-      <h3><%= METRO_STATION[station] %>駅にいます</h3>
-      <% unless current_user %>
-        <h3>この駅のスタンプを取得するにはログインが必要です</h3>
+    <% if near_stations %>
+      <% flash[:success] = message if message.present? %>
+      <% station = near_stations[0] %>
+      <% if station then %>
+        <h3><%= METRO_STATION[station] %>駅にいます</h3>
+        <% unless current_user %>
+          <h3>この駅のスタンプを取得するにはログインが必要です</h3>
+        <% end %>
+      <% else %>
+        <h3>東京メトロの駅にいません</h3>
+      <% end %>
+      <% visited_stations.each do |station| %>
+        <h3><%= station %>駅のスタンプを取得しました！</h3>
       <% end %>
     <% else %>
-      <h3>東京メトロの駅にいません</h3>
-    <% end %>
-    <% visited_stations.each do |station| %>
-    <h3><%= station %>駅のスタンプを取得しました！</h3>
+      <h3>現在地判定に失敗しました。もう一度試してみてください。</h3>
+      <h3>エラー: <%= visited_stations %></h3>
     <% end %>
     <h3><a href="" onclick="reset_element(); navigator.geolocation.getCurrentPosition(success, error);" class="btn btn-primary btn-lg"><i class="fa fa-location-arrow"></i> 現在地を再取得</a></h3>
   <% end %>
