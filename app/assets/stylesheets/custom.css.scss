@@ -24,6 +24,16 @@ textarea {
   resize: vertical;
 }
 
+.jumbotron {
+  background-image: url(/images/top.jpg);
+  background-position: 15% 60%;
+  background-size: cover;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+  max-width: 600px;
+  min-height: 500px;
+}
+
 .center {
   text-align: center;
   h1 {
@@ -33,6 +43,13 @@ textarea {
 
 .left {
   text-align: left;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.right {
+  text-align: right;
   h1 {
     margin-bottom: 10px;
   }
@@ -48,6 +65,10 @@ textarea {
 }
 
 .btn-lg {
+  margin: 5px;
+}
+
+.btn-primary {
   margin: 5px;
 }
 
