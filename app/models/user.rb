@@ -58,16 +58,18 @@ class User < ActiveRecord::Base
 
   def visit!(station_id)
     visitings.create!(station_id: station_id)
+    # 駅訪問数を更新
+    update_count
     # 駅を訪問した際にトロフィーを更新
     set_trophy
-    update_count
   end
 
   def unvisit!(station_id)
     visitings.find_by_station_id(station_id).destroy
+    # 駅訪問数を更新
+    update_count
     # 訪問駅が減ったのでトロフィーを更新
     set_trophy
-    update_count
   end
 
   def update_count

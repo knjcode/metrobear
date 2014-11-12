@@ -61,7 +61,7 @@ module ApplicationHelper
             unless user.visiting?(station_id) then
               # visit!メソッド内でset_trophyが呼ばれるため、応答をmessageに追記していく
               message << user.visit!(station_id) << " "
-              visited_stations << METRO_STATION[station]
+              visited_stations << station
             end
           end
         end

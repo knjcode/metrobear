@@ -18,7 +18,7 @@
       <% flash[:success] = message if message.present? %>
       <% station = near_stations[0] %>
       <% if station then %>
-        <h3><%= METRO_STATION[station] %>駅にいます</h3>
+        <h3><a href="/stations/<%= station %>"><%= METRO_STATION[station] %>駅</a>にいます</h3>
         <% unless current_user %>
           <h3>この駅のスタンプを取得するにはログインが必要です</h3>
         <% end %>
@@ -26,7 +26,7 @@
         <h3>東京メトロの駅にいません</h3>
       <% end %>
       <% visited_stations.each do |station| %>
-        <h3><%= station %>駅のスタンプを取得しました！</h3>
+        <h3><a href="/stations/<%= station %>"><%= METRO_STATION[station] %>駅</a>のスタンプを取得しました！</h3>
       <% end %>
     <% else %>
       <h3>現在地判定に失敗しました。もう一度試してみてください。</h3>
