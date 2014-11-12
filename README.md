@@ -30,6 +30,11 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 ## TODO
 
 ### 未実施
+
+- Enable gzip compression
+- minify JS
+- minify CSS
+- Geolocation APIのタイムアウト処理（PCからの接続時）
 - スタンプ取得時のメッセージに駅へのリンクを貼る
 - 駅コメント機能の実装
 - リポジトリのライセンスにメトロAPIの利用規約を追加
@@ -122,6 +127,7 @@ Ruby on Railsアプリをherokuにおいてる。
         - facebook認証
         - twitter認証
     - 東京メトロAPI (httpclientのgemで叩いてる)
+    - Geolocation API
 - 監視・解析
     - New Relic (アプリ監視)
     - Google Analytics (アクセス解析)
