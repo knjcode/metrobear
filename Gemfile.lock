@@ -70,6 +70,10 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.6)
     hashie (3.3.1)
+    heroku_rails_deflate (1.0.3)
+      actionpack (>= 3.2.13)
+      activesupport (>= 3.2.13)
+      rack (>= 1.4.5)
     hike (1.2.3)
     hirb (0.7.2)
     hirb-unicode (0.0.5)
@@ -244,6 +248,7 @@ DEPENDENCIES
   coffee-rails (= 4.1.0)
   factory_girl_rails (= 4.5.0)
   faker (= 1.4.3)
+  heroku_rails_deflate
   hirb (~> 0.7.2)
   hirb-unicode (~> 0.0.5)
   httpclient (= 2.5.3.2)
