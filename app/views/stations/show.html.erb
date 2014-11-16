@@ -1,17 +1,39 @@
 <% sn = params[:id] %>
 <% rn = params[:railway] %>
 <% provide(:title, METRO_STATION[sn]) %>
+<% id = METRO_STATION.keys.find_index(sn)+1 %>
 
 <section>
-<h1 class="left"><%= METRO_STATION[sn] %>駅</h3>
+<h1 class="left"><%= METRO_STATION[sn] %>駅</h1>
 <hr>
-<% id = METRO_STATION.keys.find_index(sn)+1 %>
 <% @user ||= current_user %>
 <% if signed_in? %>
   <% if @user.visiting?(id) %>
     <h4><%= "ようこそ#{METRO_STATION[sn]}駅へ！" %></h4><br />
     <h4><%= "あなたはこの駅に訪問済みです！" %></h4><br />
     <%= raw stamp_tag(sn) %>
+    <hr>
+    <% if @station.comments.any? %>
+      <p>
+      <h4>この駅へのコメント（<%= @station.comments.count %>件）</h4>
+      <ul class="users">
+        <%= render @comments %>
+      </ul>
+      <%= will_paginate @comments, previous_label:"≪", next_label:"≫"%>
+    </p>
+    <hr>
+    <% end %>
+    <p>
+    <h4>この駅にコメントを残す</h4>
+    <%= form_for(@comment) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="field">
+        <%= hidden_field_tag :station, id %>
+        <%= f.text_field :content, placeholder: "コメントを入力してください", maxlength: 140 %>
+      </div>
+      <%= f.submit "投稿", class: "btn " %>
+    <% end %>
+    </p>
     <p>
     <%= link_to "この駅の訪問記録を消す", "/unvisited/#{sn}", class: "btn btn-danger", style: "float: right;" %>
     </p><br />

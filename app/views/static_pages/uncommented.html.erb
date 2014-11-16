@@ -1,0 +1,37 @@
+<% provide(:title, 'コメント削除の確認') %>
+<% comment_id = params[:id] %>
+<% if params[:confirm] == "yes" %>
+<% comment = Comment.find(comment_id) %>
+  <% if current_user.commenting?(comment_id) %>
+    <% if current_user.uncommented!(comment_id) %>
+      <h4>コメントを削除しました</h4>
+    <% else %>
+      <h4>コメントを削除できませんでした</h4>
+    <% end %>
+    <%= link_to 'マイページ', current_user, class: "btn" %>
+    <%= link_to 'ホームに戻る', root_path, class: "btn" %>
+  <% else %>
+    <h4>コメントがありません</h4>
+  <% end %>
+<% else %>
+  <% if current_user.commenting?(comment_id) %>
+    <% if comment = Comment.find_by_id(comment_id) %>
+      <h1 class="left">コメント削除の確認</h1>
+      <hr>
+      コメント内容：<%= comment.content %>
+      <hr>
+      <h4>このコメントを削除しますか</h4>
+      <form action="<%= uncommented_path %>" name="uncommented" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :confirm, "yes" %>
+        <%= hidden_field_tag :id, comment_id %>
+        <button type="submit" class="btn btn-danger">消去する</button>
+      </form>
+    <% else %>
+      <h1 class="left">URLが不正です</h1>
+      <%= link_to 'ホームに戻る', root_path %>
+    <% end %>
+  <% else %>
+    <h1 class="left">他のユーザのコメントは削除できません</h1>
+  <% end %>
+<% end %>

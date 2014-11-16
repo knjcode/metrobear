@@ -32,8 +32,10 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 ### 最後に忘れずにやること
 
 - RAILS_ENV=production bin/rake assets:precompile
+- application_controller.rbのrescue行のコメント解除
 
 ### 未実施
+- メトロの駅にいるのに判定できなかった場合用に、wifiオン等説明を追加
 - モバイル時にトップ画像を横幅いっぱいにする
 - Geolocation APIのタイムアウト処理（PCからの接続時）
 - CSSスプライト
@@ -82,6 +84,7 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - モバイル時にドロップダウン表示が画面右にはみ出す
 - メトロAPI側エラーのハンドリング
 - スタンプ取得時のメッセージに駅へのリンクを貼る
+- DBをClearDB(MySQL)に変更
 
 
 ## トロフィー

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :visitings, dependent: :destroy
   has_many :stations, through: :visitings
+  has_many :comments, dependent: :destroy
+  has_many :stations, through: :comments
   serialize :trophies
 
   def self.find_or_create_from_auth_hash(auth_hash)
@@ -70,6 +72,18 @@ class User < ActiveRecord::Base
     update_count
     # 訪問駅が減ったのでトロフィーを更新
     set_trophy
+  end
+
+  def commenting?(id)
+    comments.find_by_id(id)
+  end
+
+  def comment!(station_id, comment)
+    comments.create!(station_id: station_id, nickname: self.nickname, content: comment)
+  end
+
+  def uncommented!(id)
+    comments.find_by_id(id).destroy
   end
 
   def update_count

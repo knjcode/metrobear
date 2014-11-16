@@ -41,7 +41,7 @@ describe "Static pages" do
     it { should have_title(full_title('現在地判定'))}
   end
 
-  METRO_STATION.each do |station|
+  METRO_STATION.each_key do |station|
     describe "Station page" do
       before { visit station_path(id:station) }
 
@@ -49,7 +49,7 @@ describe "Static pages" do
     end
   end
 
-  METRO_TROPHY.each do |trophy|
+  METRO_TROPHY.each_key do |trophy|
     describe "Trophy page" do
       before { visit trophy_path(id:trophy) }
 

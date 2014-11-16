@@ -1,0 +1,12 @@
+<% user = User.find_by_id(comment.user_id) %>
+<li>
+  <%= link_to user.nickname, user %>
+  <%= user_avatar user %>
+  <small>
+    <%= time_ago_in_words(comment.created_at) %>前に投稿
+    <% if current_user?(user) %>
+      <%= link_to "削除", "/uncommented/#{comment.id}" %>
+    <% end %>
+  </small>
+  <p class="content"><%= comment.content %></p>
+</li>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :railways, only: [:show]
   resources :stations, only: [:show]
   resources :trophies, only: [:index, :show]
+  resources :comments, only: [:create]
 
   root  'railways#index'
   match '/about',   to: 'static_pages#about',   via: 'get'
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
   match '/location',    to: 'static_pages#location',    via: 'post'
   match '/unvisited/:station',   to: 'static_pages#unvisited',   via: 'get'
   match '/unvisited',   to: 'static_pages#unvisited',   via: 'post'
+  match '/uncommented/:id',      to: 'static_pages#uncommented', via: 'get'
+  match '/uncommented', to: 'static_pages#uncommented', via: 'post'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
   resource :user do

@@ -10,6 +10,11 @@ class StaticPagesController < ApplicationController
     @station = params[:station]
   end
 
+  def uncommented
+    @confirm = params[:confirm]
+    @comment = params[:id]
+  end
+
   def help
   end
 
