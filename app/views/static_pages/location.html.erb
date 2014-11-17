@@ -56,7 +56,7 @@ message <%= message %></pre>
 if (navigator.geolocation) {
   var position_options = {
     enableHighAccuracy: true,  // 高精度を要求する
-    timeout: 60000,            // 最大待ち時間（ミリ秒）
+    timeout: 6000,            // 最大待ち時間（ミリ秒）
     maximumAge: 0              // キャッシュ有効期間（ミリ秒）
   };
   navigator.geolocation.getCurrentPosition(success, error, position_options);
