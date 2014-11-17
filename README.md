@@ -11,8 +11,28 @@ tokyometro-stamp-rally　[demo   on heroku](https://tokyometro-stamp-rally.herok
 アプリのURLへアクセスしOAuth認証にてログイン後、位置情報判定を実施。  
 東京メトロの駅にいる場合は、その駅への訪問が記録されスタンプ画像がゲットできます。
 
-### 画面イメージ（＠iPhone5)
-![home](public/home.png) ![location-sample](public/location.png) ![member](public/member.png) ![user](public/user.png)
+## スクリーンショット
+アプリの利用イメージ（画面は開発中のものです）
+
+### ホーム画面
+![home](public/home.png)
+
+### 位置情報判定
+![location-sample](public/location.png)
+
+### 駅訪問＆トロフィー取得
+![trophy](public/trophy.png)
+
+### 駅個別ページ
+![station](public/station.png)
+
+### メンバ一覧
+![member](public/member.png)
+
+### マイページ
+![user](public/user.png)
+
+
 
 ## 利用しているAPI
 
