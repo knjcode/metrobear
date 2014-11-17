@@ -35,13 +35,10 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - application_controller.rbのrescue行のコメント解除
 
 ### 未実施
-- モバイル時にトップ画像を横幅いっぱいにする
 - Geolocation APIのタイムアウト処理（PCからの接続時）
 - CSSスプライト
 - facebookのfacepile設置
-- ツイートボタン、いいねボタンの設置
 - 各駅毎の情報をAPIで取得して表示
-- メトロAPIの連続投入制限機能
 
 
 ### 実施済み
@@ -85,6 +82,7 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - 路線ごと駅一覧ページに訪問者数とコメント件数を表示する
 - リポジトリのライセンスにメトロAPIの利用規約を追加
 - メトロの駅にいるのに判定できなかった場合用に、wifiオン等説明を追加
+- ツイートボタン、いいねボタンの設置
 
 
 ## トロフィー
@@ -279,6 +277,21 @@ TMSR_ACCESS_TOKEN: w1xvatanovwev6af2qorchfw76a2jv3dx6crynvt02byht91ev5wxcawgzx2k
 ```
 
 (APIキーはダミーです)
+
+## 謝辞
+
+### Railsアプリの作成について
+アプリの基本的な部分は[Ruby on Rails チュートリアル](http://railstutorial.jp/)を参考に作成しました。
+
+### アプリの改造について
+ソーシャルログイン機能等、[パーフェクトRuby on Rails](http://www.amazon.co.jp/dp/4774165166/)を参考にさせてもらいました。
+
+### ソーシャルボタンについて
+[Samurai Factory](http://www.samurai-factory.jp/)さん提供の[忍者おまとめボタン](http://omatome.shinobi.jp/)を利用させてもらっています。
+
+### 東京メトロの路線アイコンについて
+東京メトロオープンデータ活用コンテスト運営様提供のアイコン、および、
+Wikimedia Commons様提供のクリエイティブ・コモンズライセンスの画像を利用させてもらっています。
 
 ## License
 MIT

@@ -13,8 +13,24 @@
 </center>
 <h3>本アプリは東京メトロの<a href="http://tokyometro10th.jp/future/opendata/index.html">オープンデータ活用コンテスト</a>にエントリ中の作品です</h3>
 <% end %>
+
 <section>
 <h2><a href="<%= location_path %>" class="btn btn-primary btn-lg"><i class="fa fa-location-arrow"></i> 現在地を判定する！</a></h2>
+
+<hr>
+<div class="ninja_onebutton">
+<script type="text/javascript">
+//<![CDATA[
+(function(d){
+if(typeof(window.NINJA_CO_JP_ONETAG_BUTTON_2e5c77428a3025c23067f4dfe61249ab)=='undefined'){
+    document.write("<sc"+"ript type='text\/javascript' src='http:\/\/omt.shinobi.jp\/b\/2e5c77428a3025c23067f4dfe61249ab'><\/sc"+"ript>");
+}else{
+    window.NINJA_CO_JP_ONETAG_BUTTON_2e5c77428a3025c23067f4dfe61249ab.ONETAGButton_Load();}
+})(document);
+//]]>
+</script><span class="ninja_onebutton_hidden" style="display:none;"></span><span style="display:none;" class="ninja_onebutton_hidden"></span>
+</div>
+
 <% METRO_RAILWAY.each do |railway, railwayName| %>
   <% rn = railway.slice(24..-1) %>
   <div class="railways">
