@@ -54,7 +54,12 @@ message <%= message %></pre>
 // 現在地を取得する処理
 // 成功時にはコールバックsuccess、エラー時にはコールバックerrorを実行
 if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(success, error, {enableHighAccuracy:true; timeout:6000;});
+  var position_options = {
+    enableHighAccuracy: true,  // 高精度を要求する
+    timeout: 60000,            // 最大待ち時間（ミリ秒）
+    maximumAge: 0              // キャッシュ有効期間（ミリ秒）
+  };
+  navigator.geolocation.getCurrentPosition(success, error, position_options);
 } else {
   document.getElementById("position_msg").innerHTML = "位置情報を取得できません"
 }
