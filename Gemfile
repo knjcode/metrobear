@@ -22,7 +22,6 @@ gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '3.1.2'
 gem 'turbolinks', '2.5.2'
 gem 'jbuilder', '2.2.5'
-gem 'jquery-turbolinks', '2.1.0'
 
 gem 'newrelic_rpm'
 gem 'rb-readline'
