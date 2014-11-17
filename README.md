@@ -49,10 +49,8 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - application_controller.rbのrescue行のコメント解除
 
 ### 未実施
-- Geolocation APIのタイムアウト処理（PCからの接続時）
 - CSSスプライト
 - 各駅毎の情報をAPIで取得して表示
-
 
 ### 実施済み
 - 基本機能の実装
@@ -98,6 +96,8 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - ツイートボタン、いいねボタンの設置
 - facebookのfacepile設置
 - rubyのアップデート
+- Geolocation APIの高精度オプションの有効化
+- Geolocation APIのタイムアウト処理
 
 
 ## トロフィー
