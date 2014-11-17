@@ -25,4 +25,9 @@ describe Comment do
     it { should_not be_valid }
   end
 
+  describe "when content is not present" do
+    before { @comment.content = nil }
+    it { should_not be_valid }
+  end
+
 end

@@ -15,23 +15,26 @@
     <hr>
     <% if @station.comments.any? %>
       <p>
-      <h4>この駅へのコメント（<%= @station.comments.count %>件）</h4>
-      <ul class="users">
+      <h4><%= METRO_STATION[sn] %>駅へのコメント（<%= @station.comments.count %>件）</h4>
+      <ul class="users comments">
         <%= render @comments %>
       </ul>
       <%= will_paginate @comments, previous_label:"≪", next_label:"≫"%>
-    </p>
-    <hr>
+      </p>
+      <hr>
+    <% else %>
+      <h4>この駅にはまだコメントがありません</h4>
+      <hr>
     <% end %>
     <p>
-    <h4>この駅にコメントを残す</h4>
+    <h4><%= METRO_STATION[sn] %>駅にコメントする</h4>
     <%= form_for(@comment) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div class="field">
         <%= hidden_field_tag :station, id %>
-        <%= f.text_field :content, placeholder: "コメントを入力してください", maxlength: 140 %>
+        <%= f.text_field :content, placeholder: "コメントを入力してください", maxlength: 400 %>
       </div>
-      <%= f.submit "投稿", class: "btn " %>
+      <%= f.submit "投稿", class: "btn btn-default btn-primary" %>
     <% end %>
     </p>
     <p>

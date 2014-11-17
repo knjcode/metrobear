@@ -2,15 +2,15 @@ class CommentsController < ApplicationController
   before_action :signed_in_user
 
   def create
-    #@comment = current_user.comments.build(comment_params)
-    if @comment = current_user.comments.create(station_id: params[:station],
+    comment = current_user.comments.create(station_id: params[:station],
                                                nickname: current_user.nickname,
                                                content: comment_params[:content])
+    if comment.id
       flash[:success] = "コメントを投稿しました"
-      redirect_to station_path(id: METRO_STATION.keys[params[:station].to_i-1])
+      redirect_to station_path(id:METRO_STATION.keys[params[:station].to_i-1])
     else
       flash[:warning] = "コメントを投稿できませんでした"
-      redirect_to root_path
+      redirect_to station_path(id:METRO_STATION.keys[params[:station].to_i-1])
     end
   end
 

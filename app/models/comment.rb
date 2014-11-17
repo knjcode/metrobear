@@ -7,5 +7,6 @@ class Comment < ActiveRecord::Base
   validates :user_id,    presence: true
   validates :station_id, presence: true
   validates :nickname,   presence: true
-  validates :content,    length: { maximum: 140 }
+  validates :content,    presence: true
+  validates :content,    length: { maximum: 400 }
 end
