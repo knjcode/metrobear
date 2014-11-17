@@ -93,4 +93,25 @@ module ApplicationHelper
     end
   end
 
+  def facebook_js_code
+    appID = Rails.application.secrets.facebook_api_key
+    return <<-EOS
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=#{appID}&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+    EOS
+  end
+
+  def facebook_facepile
+    appID = Rails.application.secrets.facebook_api_key
+    return <<-EOS
+      <div class="fb-facepile" data-app-id="#{appID}" data-href="#{ENV["TMSR_URL"]}" data-max-rows="1" data-colorscheme="light" data-size="small" data-show-count="true"></div>
+    EOS
+  end
+
 end

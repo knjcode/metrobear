@@ -12,7 +12,6 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
-    <%= raw google_analytics_tracking_code %>
   </head>
   <body>
     <%= render 'layouts/header' %>
@@ -24,5 +23,7 @@
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
+    <%= raw google_analytics_tracking_code %>
+    <%= raw facebook_js_code %>
   </body>
 </html>
