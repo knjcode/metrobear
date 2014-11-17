@@ -24,6 +24,7 @@
         <% end %>
       <% else %>
         <h3>東京メトロの駅にいません</h3>
+        <p class="center">東京メトロの駅にいても判定されない場合は、無線LAN(Wi-Fi)機能を有効にし、Googleマップ等の地図アプリを一度開いた後に再度試してみてください</p>
       <% end %>
       <% visited_stations.each do |station| %>
         <h3><a href="/stations/<%= station %>"><%= METRO_STATION[station] %>駅</a>のスタンプを取得しました！</h3>
