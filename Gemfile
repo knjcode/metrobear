@@ -3,13 +3,13 @@ ruby '2.0.0'
 
 gem 'rails', '4.1.7'
 gem 'unicorn', '4.8.3'
-gem 'bootstrap-sass', '3.3.0.1'
+gem 'bootstrap-sass', '3.3.1.0'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt', '3.1.9'
 gem 'faker', '1.4.3'
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
-gem 'httpclient', '2.5.3.2'
+gem 'httpclient', '2.5.3.3'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-twitter', '~> 1.1.0'
 gem 'omniauth-facebook', '~> 2.0.0'
@@ -21,11 +21,11 @@ gem 'uglifier', '2.5.3'
 gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '3.1.2'
 gem 'turbolinks', '2.5.2'
-gem 'jbuilder', '2.2.4'
+gem 'jbuilder', '2.2.5'
+gem 'jquery-turbolinks', '2.1.0'
 
 gem 'newrelic_rpm'
 gem 'rb-readline'
-gem 'rails-erd'
 
 group :development, :test do
   gem 'pry', '0.9.12.6'
@@ -35,6 +35,7 @@ group :development, :test do
   gem 'rspec-rails', '3.1.0'
   gem 'hirb', '~> 0.7.2'
   gem 'hirb-unicode', '~> 0.0.5'
+  gem 'rails-erd', '1.1.0'
 end
 
 group :test do
