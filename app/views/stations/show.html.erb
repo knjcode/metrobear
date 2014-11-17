@@ -10,7 +10,7 @@
 <% if signed_in? %>
   <% if @user.visiting?(id) %>
     <h4><%= "ようこそ#{METRO_STATION[sn]}駅へ！" %></h4><br />
-    <h4><%= "あなたはこの駅に訪問済みです！" %></h4><br />
+    <h4><%= "あなたはこの駅を訪問済みです！" %></h4><br />
     <%= raw stamp_tag(sn) %>
     <hr>
     <% if @station.comments.any? %>
@@ -23,7 +23,7 @@
       </p>
       <hr>
     <% else %>
-      <h4>この駅にはまだコメントがありません</h4>
+      <h4><%= METRO_STATION[sn] %>駅にはまだコメントがありません</h4>
       <hr>
     <% end %>
     <p>
@@ -42,7 +42,7 @@
     </p><br />
   <% else %>
     <% @user.visit!(id) if ENV["TMSR_AUTO_VISITING"] == "true" %>
-    <h4><%= "あなたはこの駅にまだ訪問していません" %></h4><br />
+    <h4><%= "まだこの駅を訪問していません" %></h4><br />
   <% end %>
 <% else %>
   <h4>サインインしていません。</h4>
