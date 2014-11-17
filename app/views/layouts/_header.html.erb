@@ -6,6 +6,7 @@
         <ul class="nav nav-pills navbar-right">
           <li><a href="<%= location_path %>"><i class="fa fa-location-arrow"></i> 現在地判定</a></li>
           <% if logged_in? %>
+            <div style="clear: both;"></div>
             <li><a href="<%= users_path %>"><i class="fa fa-users"></i> メンバ一覧</a></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">

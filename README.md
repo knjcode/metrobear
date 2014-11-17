@@ -149,11 +149,12 @@ Ruby on Railsアプリをherokuにおいてる。
 位置情報判定ページでは、取得した位置情報をPOSTでサーバ送信し、駅訪問の判定をします。
 
 ## ER図
-rails-erdというgemを使う  
+rails-erdというgemを使うとRailsアプリのmodelのイメージ図を出力できます。  
 
 ![erd](public/erd.png)
 
 Userモデルとメトロ各駅を登録したStationモデルがあり、駅の訪問はUserとStationに対して多対多の関係をもつVisitingモデルで管理する。  
+駅へのコメントについても同様にUserとStationに対する多対多の関係を持つCommentモデルで管理する。
 駅訪問数や獲得トロフィーについてはUserモデルのカラムに値を保存して管理する。
 
 ## テスト
