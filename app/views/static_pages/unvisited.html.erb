@@ -1,4 +1,4 @@
-<% provide(:title, '駅訪問記録消去の確認') %>
+<% provide(:title, '駅訪問記録消去') %>
 <% if params[:confirm] == "yes" %>
 <% id = METRO_STATION.keys.find_index(params[:station])+1 %>
   <% if current_user.visiting?(id) %>
@@ -14,7 +14,7 @@
   <% end %>
 <% else %>
   <% if METRO_STATION[params[:station]] %>
-    <h1 class="left">駅訪問記録消去の確認</h1>
+    <h1 class="left">駅訪問記録消去</h1>
     <hr>
     <h4><%= METRO_STATION[params[:station]] %>駅に訪問した記録を消去しますか</h4>
     <form action="<%= unvisited_path %>" name="unvisited" method="post">

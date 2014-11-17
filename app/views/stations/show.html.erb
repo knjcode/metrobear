@@ -42,7 +42,7 @@
     </p><br />
   <% else %>
     <% @user.visit!(id) if ENV["TMSR_AUTO_VISITING"] == "true" %>
-    <h4><%= "まだこの駅を訪問していません" %></h4><br />
+    <h4>あなたはまだこの駅を訪問していません</h4><br />
   <% end %>
 <% else %>
   <h4>サインインしていません。</h4>

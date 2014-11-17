@@ -6,7 +6,7 @@
     <% METRO_RAILSTA["odpt.Railway:TokyoMetro."+params[:id]].each do |stations| %>
       <% stations.each do |id, station| %>
         <% current_station = Station.find_by_name(station) %>
-        <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= raw station_icon(rn,id) %> <%= METRO_STATION[station] %> （訪問：<%= current_station.visitings.count %>名　コメント：<%= current_station.comments.count %>件）</a></li>
+        <li><a href="<%= url_for :controller => 'stations', :action => 'show', :id => station %>"><%= raw station_icon(rn,id) %> <%= METRO_STATION[station] %> （訪問:<%= current_station.visitings.count %> コメント:<%= current_station.comments.count %>）</a></li>
       <% end %>
     <% end %>
   </ul>
