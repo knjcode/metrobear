@@ -35,18 +35,15 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - application_controller.rbのrescue行のコメント解除
 
 ### 未実施
-- 路線ごと駅一覧ページに駅コメント件数の表示
 - メトロの駅にいるのに判定できなかった場合用に、wifiオン等説明を追加
 - モバイル時にトップ画像を横幅いっぱいにする
 - Geolocation APIのタイムアウト処理（PCからの接続時）
 - CSSスプライト
-- リポジトリのライセンスにメトロAPIの利用規約を追加
 - facebookのfacepile設置
 - ツイートボタン、いいねボタンの設置
 - 各駅毎の情報をAPIで取得して表示
 - メトロAPIの連続投入制限機能
 
-### 実施中
 
 ### 実施済み
 - 基本機能の実装
@@ -86,6 +83,8 @@ Wifiを有効にしておけば、GoogleやApple様のおかげで位置情報�
 - スタンプ取得時のメッセージに駅へのリンクを貼る
 - DBをClearDB(MySQL)に変更
 - 駅コメント機能の実装
+- 路線ごと駅一覧ページに訪問者数とコメント件数を表示する
+- リポジトリのライセンスにメトロAPIの利用規約を追加
 
 
 ## トロフィー
@@ -283,6 +282,9 @@ TMSR_ACCESS_TOKEN: w1xvatanovwev6af2qorchfw76a2jv3dx6crynvt02byht91ev5wxcawgzx2k
 
 ## License
 MIT
+
+東京メトロのオープンデータAPIの利用については利用規約もご確認ください。  
+[東京メトロオープンデータ活用コンテスト用公共交通データAPI利用許諾規約](https://developer.tokyometroapp.jp/terms.html)
 
 ## Author
 [knjcode](https://github.com/knjcode) and Stamps by gorakkuma
